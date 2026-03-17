@@ -3,6 +3,7 @@
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { SectionHeader } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
+import { ReleaseArtwork } from "@/components/ui/release-artwork";
 import { RELEASES } from "@/lib/constants";
 
 export function FeaturedMusic() {
@@ -23,18 +24,10 @@ export function FeaturedMusic() {
           {featured.map((release, i) => (
             <AnimatedSection key={release.title} delay={i * 0.1}>
               <div className="group">
-                {/* Artwork placeholder */}
-                <div className="relative aspect-square mb-6 overflow-hidden bg-eden-charcoal border border-white/5">
-                  <div className="absolute inset-0 bg-gradient-to-br from-eden-gold/10 via-eden-dark to-eden-charcoal" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <span className="font-serif text-3xl md:text-4xl text-eden-cream/20 group-hover:text-eden-cream/40 transition-colors duration-500">
-                        {release.title.charAt(0)}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-eden-black/60 to-transparent" />
-                </div>
+                <ReleaseArtwork
+                  release={release}
+                  className="mb-6 aspect-square group-hover:border-eden-gold/55 transition-colors duration-500"
+                />
 
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-xs uppercase tracking-[0.2em] text-eden-gold font-medium">

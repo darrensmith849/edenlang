@@ -1,19 +1,27 @@
 "use client";
 
 import { AnimatedSection } from "@/components/ui/animated-section";
+import Image from "next/image";
 
 export function AboutStory() {
   return (
     <section className="relative py-20 md:py-28 bg-eden-charcoal grain">
       <div className="relative z-10 mx-auto max-w-4xl px-6 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
-          {/* Photo placeholder */}
           <AnimatedSection className="md:col-span-5" direction="left">
-            <div className="relative aspect-[3/4] bg-eden-dark border border-white/5 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-eden-gold/10 via-eden-dark to-eden-charcoal" />
+            <div className="relative aspect-[3/4] overflow-hidden border border-white/10 bg-eden-dark">
+              <Image
+                src="/images/eden-portrait.svg"
+                alt="Stylized portrait artwork of Eden Lang"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 40vw"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-eden-black/70 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
-                <span className="text-xs uppercase tracking-[0.25em] text-eden-cream/30">
-                  Photo coming soon
+                <span className="text-xs uppercase tracking-[0.25em] text-eden-cream/60">
+                  Eden Lang
                 </span>
               </div>
             </div>

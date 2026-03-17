@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Eden Lang portrait artwork</title>
+  <desc id="desc">Stylized monochrome portrait placeholder with warm highlights.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#121212"/>
+      <stop offset="60%" stop-color="#1b1b1b"/>
+      <stop offset="100%" stop-color="#0c0c0c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="72%" cy="18%" r="65%">
+      <stop offset="0%" stop-color="#c4956a" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#c4956a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="silhouette" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f5f0eb" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#f5f0eb" stop-opacity="0.28"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <rect width="900" height="1200" fill="url(#glow)"/>
+
+  <g opacity="0.12" stroke="#f5f0eb" stroke-width="1">
+    <path d="M60 300C280 250 520 250 840 320"/>
+    <path d="M50 430C320 380 600 400 850 470"/>
+    <path d="M70 570C300 530 560 550 830 620"/>
+    <path d="M60 710C290 690 550 720 840 780"/>
+    <path d="M80 850C320 840 580 860 840 910"/>
+  </g>
+
+  <g transform="translate(130 180)">
+    <path d="M278 76c-88 0-162 75-162 171v94c0 94 73 170 162 170s162-76 162-170v-94c0-96-74-171-162-171z" fill="#f5f0eb" fill-opacity="0.08"/>
+    <path d="M192 242c8-52 39-88 86-88 48 0 78 36 88 88 11 56 8 141-20 194-17 31-40 49-68 49-29 0-52-18-69-49-29-53-31-138-17-194z" fill="url(#silhouette)"/>
+    <path d="M120 646c11-96 91-152 158-152s149 56 160 152" fill="none" stroke="#f5f0eb" stroke-opacity="0.4" stroke-width="44" stroke-linecap="round"/>
+    <ellipse cx="256" cy="270" rx="126" ry="118" fill="#0f0f0f" fill-opacity="0.45"/>
+    <ellipse cx="228" cy="322" rx="11" ry="8" fill="#131313"/>
+    <ellipse cx="284" cy="322" rx="11" ry="8" fill="#131313"/>
+    <path d="M228 383c11 8 22 12 30 12 9 0 18-3 30-11" stroke="#141414" stroke-width="6" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <text x="75" y="1088" fill="#f5f0eb" fill-opacity="0.52" font-family="Georgia, serif" font-size="36" letter-spacing="5">EDEN LANG</text>
+  <text x="76" y="1132" fill="#c4956a" fill-opacity="0.72" font-family="Arial, sans-serif" font-size="15" letter-spacing="7">COMPOSER · ARTIST · CREATOR</text>
+</svg>

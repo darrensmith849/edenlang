@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatedSection } from "@/components/ui/animated-section";
+import { ReleaseArtwork } from "@/components/ui/release-artwork";
 import { RELEASES } from "@/lib/constants";
 
 export function MusicReleases() {
@@ -11,16 +12,11 @@ export function MusicReleases() {
           {RELEASES.map((release, i) => (
             <AnimatedSection key={release.title} delay={i * 0.05}>
               <div className="group grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 py-10 border-b border-white/5 last:border-b-0">
-                {/* Artwork placeholder */}
                 <div className="md:col-span-3">
-                  <div className="relative aspect-square max-w-[200px] md:max-w-none bg-eden-dark border border-white/5 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-eden-gold/10 via-eden-dark to-eden-charcoal group-hover:from-eden-gold/15 transition-all duration-500" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-serif text-4xl text-eden-cream/15 group-hover:text-eden-cream/30 transition-colors duration-500">
-                        {release.title.charAt(0)}
-                      </span>
-                    </div>
-                  </div>
+                  <ReleaseArtwork
+                    release={release}
+                    className="aspect-square max-w-[200px] md:max-w-none group-hover:border-eden-gold/45 transition-colors duration-500"
+                  />
                 </div>
 
                 {/* Details */}
