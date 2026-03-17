@@ -85,7 +85,12 @@ body {
 }
 
 .animate-partner-marquee {
-  animation: partner-marquee 22s linear infinite;
+  animation: partner-marquee 34s linear infinite;
+}
+
+.carousel-fade-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
 }
 
 /* Reduced motion */

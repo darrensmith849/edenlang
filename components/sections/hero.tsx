@@ -21,11 +21,24 @@ export function Hero() {
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !videoRef.current.muted;
-      setIsMuted(!isMuted);
+  const toggleMute = async () => {
+    if (!videoRef.current) return;
+    const nextMuted = !videoRef.current.muted;
+    videoRef.current.muted = nextMuted;
+    if (!nextMuted) {
+      videoRef.current.volume = 1;
+      await videoRef.current.play().catch(() => {});
     }
+    setIsMuted(nextMuted);
+  };
+
+  const playWithSound = async () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = false;
+    videoRef.current.volume = 1;
+    await videoRef.current.play().catch(() => {});
+    setIsMuted(false);
+    setIsPlaying(!videoRef.current.paused);
   };
 
   const togglePlay = () => {
@@ -41,19 +54,6 @@ export function Hero() {
 
   return (
     <section className="relative h-screen min-h-[600px] max-h-[1200px] overflow-hidden flex items-center justify-center">
-      <div className="absolute top-0 left-0 right-0 z-20 overflow-hidden border-y border-white/10 bg-eden-black/70 backdrop-blur-sm">
-        <div className="absolute inset-0 opacity-15 bg-[url('/images/eden/partners-banner.jpg')] bg-cover bg-center" />
-        <div className="relative flex min-w-max animate-partner-marquee py-3">
-          {partners.map((partner, idx) => (
-            <div key={`${partner}-${idx}`} className="mx-3 shrink-0">
-              <span className="inline-flex items-center px-4 py-1.5 border border-eden-gold/30 bg-eden-black/80 text-[10px] uppercase tracking-[0.18em] text-eden-cream/90">
-                {partner}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Video background */}
       {!prefersReducedMotion && (
         <video
@@ -130,6 +130,40 @@ export function Hero() {
           <Button href="/contact" variant="outline" size="lg">
             Get in Touch
           </Button>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 1.05, ease: [0.25, 0.4, 0.25, 1] }}
+          className="mt-6"
+        >
+          <button
+            onClick={playWithSound}
+            className="inline-flex items-center justify-center px-6 py-2.5 border border-eden-gold/45 bg-eden-black/55 text-[11px] uppercase tracking-[0.2em] text-eden-gold hover:bg-eden-gold/10 transition-colors duration-300"
+          >
+            {isMuted ? "Play with sound" : "Sound on"}
+          </button>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 1.15, ease: [0.25, 0.4, 0.25, 1] }}
+          className="mt-8 relative mx-auto w-full max-w-3xl overflow-hidden rounded-full border border-white/10 bg-eden-black/65 backdrop-blur-sm carousel-fade-mask"
+        >
+          <div className="absolute inset-0 opacity-10 bg-[url('/images/eden/partners-banner.jpg')] bg-cover bg-center" />
+          <div className="relative flex min-w-max animate-partner-marquee py-3">
+            {partners.map((partner, idx) => (
+              <div key={`${partner}-${idx}`} className="mx-3 shrink-0">
+                <span className="inline-flex items-center px-4 py-1.5 border border-eden-gold/30 bg-eden-black/80 text-[10px] uppercase tracking-[0.18em] text-eden-cream/90">
+                  {partner}
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-eden-black via-eden-black/70 to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-eden-black via-eden-black/70 to-transparent" />
         </motion.div>
       </div>
 
