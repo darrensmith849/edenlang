@@ -1,4 +1,5 @@
 import { Release } from "@/lib/constants";
+import Image from "next/image";
 
 const TYPE_STYLES: Record<Release["type"], { ring: string; glow: string; text: string }> = {
   Single: {
@@ -30,13 +31,27 @@ interface ReleaseArtworkProps {
 
 export function ReleaseArtwork({ release, className = "" }: ReleaseArtworkProps) {
   const style = TYPE_STYLES[release.type];
+  const hasCover = Boolean(release.coverImageUrl);
 
   return (
     <div
       className={`relative overflow-hidden border ${style.ring} bg-eden-dark ${className}`.trim()}
       aria-hidden="true"
     >
-      <div className={`absolute inset-0 bg-gradient-to-br ${style.glow} opacity-70`} />
+      {hasCover ? (
+        <>
+          <Image
+            src={release.coverImageUrl!}
+            alt={`${release.title} cover artwork`}
+            fill
+            sizes="(max-width: 768px) 90vw, 33vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-eden-black/75 via-eden-black/30 to-transparent" />
+        </>
+      ) : (
+        <div className={`absolute inset-0 bg-gradient-to-br ${style.glow} opacity-70`} />
+      )}
       <div className="absolute -left-10 -top-10 h-28 w-28 rounded-full bg-white/10 blur-3xl" />
       <div className="absolute -bottom-12 -right-8 h-32 w-32 rounded-full bg-eden-gold/15 blur-3xl" />
       <div className="relative flex h-full flex-col justify-between p-5 md:p-6">

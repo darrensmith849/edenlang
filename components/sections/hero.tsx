@@ -3,12 +3,15 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { BRAND_PARTNERS, SITE } from "@/lib/constants";
 
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const partners = [...BRAND_PARTNERS, ...BRAND_PARTNERS];
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -25,8 +28,32 @@ export function Hero() {
     }
   };
 
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    } else {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
   return (
     <section className="relative h-screen min-h-[600px] max-h-[1200px] overflow-hidden flex items-center justify-center">
+      <div className="absolute top-0 left-0 right-0 z-20 overflow-hidden border-y border-white/10 bg-eden-black/70 backdrop-blur-sm">
+        <div className="absolute inset-0 opacity-15 bg-[url('/images/eden/partners-banner.jpg')] bg-cover bg-center" />
+        <div className="relative flex min-w-max animate-partner-marquee py-3">
+          {partners.map((partner, idx) => (
+            <div key={`${partner}-${idx}`} className="mx-3 shrink-0">
+              <span className="inline-flex items-center px-4 py-1.5 border border-eden-gold/30 bg-eden-black/80 text-[10px] uppercase tracking-[0.18em] text-eden-cream/90">
+                {partner}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Video background */}
       {!prefersReducedMotion && (
         <video
@@ -35,13 +62,15 @@ export function Hero() {
           muted
           loop
           playsInline
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
           onLoadedData={() => setVideoLoaded(true)}
-          poster="/images/hero-poster.jpg"
+          poster="/images/eden/hero-portrait.png"
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
             videoLoaded ? "opacity-40" : "opacity-0"
           }`}
         >
-          <source src="/videos/reel.mp4" type="video/mp4" />
+          <source src={SITE.media.heroVideoUrl} type="video/mp4" />
         </video>
       )}
 
@@ -137,6 +166,27 @@ export function Hero() {
             </>
           )}
         </svg>
+      </motion.button>
+
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.7 }}
+        onClick={togglePlay}
+        className="absolute bottom-8 right-44 md:right-48 z-10 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-eden-cream/50 hover:text-eden-gold transition-colors duration-300"
+        aria-label={isPlaying ? "Pause video" : "Play video"}
+      >
+        <span className="hidden sm:inline">{isPlaying ? "Pause video" : "Play video"}</span>
+        {isPlaying ? (
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <rect x="6" y="5" width="4" height="14" />
+            <rect x="14" y="5" width="4" height="14" />
+          </svg>
+        ) : (
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="7,5 20,12 7,19" />
+          </svg>
+        )}
       </motion.button>
 
       {/* Scroll indicator */}

@@ -13,10 +13,24 @@ export function MusicReleases() {
             <AnimatedSection key={release.title} delay={i * 0.05}>
               <div className="group grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 py-10 border-b border-white/5 last:border-b-0">
                 <div className="md:col-span-3">
-                  <ReleaseArtwork
-                    release={release}
-                    className="aspect-square max-w-[200px] md:max-w-none group-hover:border-eden-gold/45 transition-colors duration-500"
-                  />
+                  {(release.primaryUrl || release.appleMusicUrl || release.soundcloudUrl) ? (
+                    <a
+                      href={release.primaryUrl || release.appleMusicUrl || release.soundcloudUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Open ${release.title}`}
+                    >
+                      <ReleaseArtwork
+                        release={release}
+                        className="aspect-square max-w-[200px] md:max-w-none group-hover:border-eden-gold/45 transition-colors duration-500"
+                      />
+                    </a>
+                  ) : (
+                    <ReleaseArtwork
+                      release={release}
+                      className="aspect-square max-w-[200px] md:max-w-none group-hover:border-eden-gold/45 transition-colors duration-500"
+                    />
+                  )}
                 </div>
 
                 {/* Details */}
@@ -35,15 +49,37 @@ export function MusicReleases() {
                     )}
                   </div>
 
-                  <h3 className="font-serif text-2xl md:text-3xl text-eden-cream mb-4 group-hover:text-eden-gold transition-colors duration-300">
-                    {release.title}
-                  </h3>
+                  {(release.primaryUrl || release.appleMusicUrl || release.soundcloudUrl) ? (
+                    <a
+                      href={release.primaryUrl || release.appleMusicUrl || release.soundcloudUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <h3 className="font-serif text-2xl md:text-3xl text-eden-cream mb-4 group-hover:text-eden-gold transition-colors duration-300">
+                        {release.title}
+                      </h3>
+                    </a>
+                  ) : (
+                    <h3 className="font-serif text-2xl md:text-3xl text-eden-cream mb-4 group-hover:text-eden-gold transition-colors duration-300">
+                      {release.title}
+                    </h3>
+                  )}
 
                   <p className="text-sm text-eden-muted leading-relaxed mb-6 max-w-xl">
                     {release.description}
                   </p>
 
                   <div className="flex flex-wrap gap-4">
+                    {(release.primaryUrl || release.appleMusicUrl || release.soundcloudUrl) && (
+                      <a
+                        href={release.primaryUrl || release.appleMusicUrl || release.soundcloudUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-eden-gold hover:text-eden-gold-light transition-colors duration-300 border border-eden-gold/30 hover:border-eden-gold/60 px-4 py-2"
+                      >
+                        Listen Now
+                      </a>
+                    )}
                     {release.appleMusicUrl && (
                       <a
                         href={release.appleMusicUrl}

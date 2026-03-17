@@ -11,8 +11,8 @@ export function AboutStory() {
           <AnimatedSection className="md:col-span-5" direction="left">
             <div className="relative aspect-[3/4] overflow-hidden border border-white/10 bg-eden-dark">
               <Image
-                src="/images/eden-portrait.svg"
-                alt="Stylized portrait artwork of Eden Lang"
+                src="/images/eden/about-portrait.webp"
+                alt="Portrait of Eden Lang"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 40vw"

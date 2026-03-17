@@ -24,10 +24,24 @@ export function FeaturedMusic() {
           {featured.map((release, i) => (
             <AnimatedSection key={release.title} delay={i * 0.1}>
               <div className="group">
-                <ReleaseArtwork
-                  release={release}
-                  className="mb-6 aspect-square group-hover:border-eden-gold/55 transition-colors duration-500"
-                />
+                {(release.primaryUrl || release.appleMusicUrl || release.soundcloudUrl) ? (
+                  <a
+                    href={release.primaryUrl || release.appleMusicUrl || release.soundcloudUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Open ${release.title}`}
+                  >
+                    <ReleaseArtwork
+                      release={release}
+                      className="mb-6 aspect-square group-hover:border-eden-gold/55 transition-colors duration-500"
+                    />
+                  </a>
+                ) : (
+                  <ReleaseArtwork
+                    release={release}
+                    className="mb-6 aspect-square group-hover:border-eden-gold/55 transition-colors duration-500"
+                  />
+                )}
 
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-xs uppercase tracking-[0.2em] text-eden-gold font-medium">
@@ -41,15 +55,38 @@ export function FeaturedMusic() {
                   )}
                 </div>
 
-                <h3 className="font-serif text-xl text-eden-cream mb-3">
-                  {release.title}
-                </h3>
+                {(release.primaryUrl || release.appleMusicUrl || release.soundcloudUrl) ? (
+                  <a
+                    href={release.primaryUrl || release.appleMusicUrl || release.soundcloudUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block"
+                  >
+                    <h3 className="font-serif text-xl text-eden-cream mb-3 group-hover:text-eden-gold transition-colors duration-300">
+                      {release.title}
+                    </h3>
+                  </a>
+                ) : (
+                  <h3 className="font-serif text-xl text-eden-cream mb-3">
+                    {release.title}
+                  </h3>
+                )}
 
                 <p className="text-sm text-eden-muted leading-relaxed mb-4">
                   {release.description}
                 </p>
 
                 <div className="flex gap-3">
+                  {(release.primaryUrl || release.appleMusicUrl || release.soundcloudUrl) && (
+                    <a
+                      href={release.primaryUrl || release.appleMusicUrl || release.soundcloudUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs uppercase tracking-[0.15em] text-eden-gold hover:text-eden-gold-light transition-colors duration-300"
+                    >
+                      Listen
+                    </a>
+                  )}
                   {release.appleMusicUrl && (
                     <a
                       href={release.appleMusicUrl}

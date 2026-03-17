@@ -14,6 +14,10 @@ export const SITE = {
     tiktok: "https://www.tiktok.com/@edenlang",
     facebook: "https://www.facebook.com/edenlangmusic/",
   },
+  media: {
+    heroVideoUrl:
+      "https://storage.googleapis.com/msgsndr/5nJLnDKeraFuidX6On1p/media/6943bcb559a0a67e9a9ff8ae.mp4",
+  },
 } as const;
 
 export interface Release {
@@ -21,6 +25,8 @@ export interface Release {
   year: string;
   type: "Single" | "Album" | "EP" | "Feature";
   description: string;
+  coverImageUrl?: string;
+  primaryUrl?: string;
   spotifyUrl?: string;
   appleMusicUrl?: string;
   soundcloudUrl?: string;
@@ -34,8 +40,12 @@ export const RELEASES: Release[] = [
     type: "Single",
     description:
       "A warm, radiant release carrying the energy of forward motion and light.",
+    coverImageUrl:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f4/55/52/f4555234-871e-b90f-3342-1187fb271c96/199538102628.jpg/1200x1200bb.jpg",
+    primaryUrl:
+      "https://music.apple.com/us/album/sunshine-vibe-feat-eden-lang/1823033640?i=1823033642",
     appleMusicUrl:
-      "https://music.apple.com/us/artist/eden-lang/1422676924",
+      "https://music.apple.com/us/album/sunshine-vibe-feat-eden-lang/1823033640?i=1823033642",
     featured: true,
   },
   {
@@ -44,6 +54,9 @@ export const RELEASES: Release[] = [
     type: "Single",
     description:
       "A soulful meditation on regret and the desire to turn back time. Blending indie rock with traditional Zimbabwean musical elements, Maiwee is storytelling at its most honest.",
+    coverImageUrl:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/cd/ab/ff/cdabff2d-0c48-79d3-fb9d-ce11f7145e2f/artwork.jpg/1200x1200bb.jpg",
+    primaryUrl: "https://music.apple.com/us/album/maiwee/1731999378?i=1731999379",
     appleMusicUrl:
       "https://music.apple.com/zm/album/maiwee-single/1731999378",
     soundcloudUrl: "https://soundcloud.com/edenlang",
@@ -55,6 +68,12 @@ export const RELEASES: Release[] = [
     type: "Feature",
     description:
       "A featured vocal performance on Danai Clay's stirring single — a song about resilience, faith, and finding peace after turbulence.",
+    coverImageUrl:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/4d/3a/9e/4d3a9e44-93ac-1e90-e378-c82a8daf13e2/artwork.jpg/1200x1200bb.jpg",
+    primaryUrl:
+      "https://music.apple.com/us/album/the-storm-is-over-feat-eden-lang/1753406187?i=1753406188",
+    appleMusicUrl:
+      "https://music.apple.com/us/album/the-storm-is-over-feat-eden-lang/1753406187?i=1753406188",
     featured: true,
   },
   {
@@ -63,6 +82,10 @@ export const RELEASES: Release[] = [
     type: "Feature",
     description:
       "A collaboration with Verseless from the SMILE EP. A vibrant fusion of Amapiano, pop, and Afrobeat — two Zimbabwean voices blending seamlessly.",
+    coverImageUrl:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/33/3f/dd/333fddba-dd52-9d13-73ff-217c52386392/757572933440.jpg/1200x1200bb.jpg",
+    primaryUrl:
+      "https://music.apple.com/us/album/dont-feat-eden-lang-radio-edit/1639125346?i=1639125356",
     appleMusicUrl:
       "https://music.apple.com/us/album/dont-single/1614612616",
   },
@@ -72,6 +95,11 @@ export const RELEASES: Release[] = [
     type: "Single",
     description:
       "A fan favourite from the debut era — shimmering guitars, delicate falsettos, and the emotional clarity that defines Eden's sound.",
+    coverImageUrl:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/31/9c/48/319c4861-b495-46ab-7a5d-045d1f6c3404/artwork.jpg/1200x1200bb.jpg",
+    primaryUrl: "https://music.apple.com/us/album/glitter/1627340745?i=1627340747",
+    appleMusicUrl:
+      "https://music.apple.com/us/album/glitter/1627340745?i=1627340747",
     soundcloudUrl: "https://soundcloud.com/edenlang",
   },
   {
@@ -80,6 +108,12 @@ export const RELEASES: Release[] = [
     type: "Album",
     description:
       "Eden's debut album — a collection of songs exploring heartbreak, self-discovery, and triumph. The foundation of everything that followed.",
+    coverImageUrl:
+      "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/31/9c/48/319c4861-b495-46ab-7a5d-045d1f6c3404/artwork.jpg/1200x1200bb.jpg",
+    primaryUrl:
+      "https://music.apple.com/us/album/from-ashes-to-beauty-ep/1627340745",
+    appleMusicUrl:
+      "https://music.apple.com/us/album/from-ashes-to-beauty-ep/1627340745",
     soundcloudUrl: "https://soundcloud.com/edenlang",
   },
 ];
