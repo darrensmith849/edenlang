@@ -21,10 +21,9 @@ export function ContactHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-serif text-4xl md:text-5xl lg:text-6xl text-eden-cream leading-tight mb-8"
+          className="font-serif text-[2.25rem] md:text-5xl lg:text-6xl text-eden-cream leading-tight mb-8"
         >
-          Let&apos;s create something
-          <br />
+          Let&apos;s create something{" "}
           <span className="text-eden-gold">together</span>
         </motion.h1>
 

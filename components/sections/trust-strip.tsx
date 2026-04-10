@@ -5,35 +5,21 @@ import { PARTNERS } from "@/lib/constants";
 
 export function PartnerStrip() {
   return (
-    <section className="relative py-16 md:py-20 bg-eden-black border-y border-white/5">
+    <section className="relative py-14 md:py-16 bg-eden-black border-y border-white/[0.03]">
       <div className="mx-auto max-w-6xl px-6 md:px-8 text-center">
         <AnimatedSection>
-          <p className="text-xs uppercase tracking-[0.3em] text-eden-muted/50 mb-8">
-            Selected partners &amp; collaborations
+          <p className="text-[10px] uppercase tracking-[0.35em] text-eden-muted/40 mb-6">
+            Selected partners
           </p>
-        </AnimatedSection>
-
-        <AnimatedSection delay={0.1}>
-          <div className="flex flex-wrap items-center justify-center gap-x-12 md:gap-x-16 gap-y-6">
+          <div className="flex flex-wrap items-center justify-center gap-x-12 md:gap-x-16 gap-y-4">
             {PARTNERS.map((partner) => (
               <span
                 key={partner.name}
-                className="text-xl md:text-2xl font-serif text-eden-cream/25 hover:text-eden-cream/50 transition-colors duration-500"
+                className="text-lg md:text-xl font-serif text-eden-cream/20 hover:text-eden-cream/45 transition-colors duration-500"
               >
                 {partner.name}
               </span>
             ))}
-            {/* Placeholder slots for future partner logos */}
-            {PARTNERS.length < 4 && (
-              <>
-                <span className="text-xl md:text-2xl font-serif text-eden-cream/10">
-                  &mdash;
-                </span>
-                <span className="text-xl md:text-2xl font-serif text-eden-cream/10">
-                  &mdash;
-                </span>
-              </>
-            )}
           </div>
         </AnimatedSection>
       </div>

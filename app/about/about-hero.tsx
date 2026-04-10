@@ -21,11 +21,10 @@ export function AboutHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-serif text-4xl md:text-5xl lg:text-6xl text-eden-cream leading-tight mb-8"
+          className="font-serif text-[2.25rem] md:text-5xl lg:text-6xl text-eden-cream leading-tight mb-8"
         >
-          Craft, meaning,
-          <br />
-          <span className="text-eden-gold">and honest music.</span>
+          Craft, meaning, and{" "}
+          <span className="text-eden-gold">honest music.</span>
         </motion.h1>
 
         <motion.p

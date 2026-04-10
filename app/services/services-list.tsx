@@ -14,34 +14,34 @@ export function ServicesList() {
   return (
     <section className="relative py-24 md:py-32 bg-eden-charcoal grain">
       <div className="relative z-10 mx-auto max-w-6xl px-6 md:px-8">
-        <div className="space-y-20 md:space-y-28">
+        <div className="space-y-16 md:space-y-24">
           {SERVICES.map((service, i) => {
-            const hasImage = serviceImages[i];
+            const imageUrl = serviceImages[i];
             const isReversed = i % 2 !== 0;
 
             return (
               <AnimatedSection key={service.title} delay={0.05}>
                 <div
                   className={`grid grid-cols-1 ${
-                    hasImage ? "md:grid-cols-12" : ""
-                  } gap-10 md:gap-16 items-center`}
+                    imageUrl ? "md:grid-cols-12 gap-10 md:gap-16" : "gap-0"
+                  } items-center`}
                 >
-                  {/* Image column — only if this service has one */}
-                  {hasImage && (
+                  {/* Image column */}
+                  {imageUrl && (
                     <div
                       className={`md:col-span-5 ${
                         isReversed ? "md:order-2" : ""
                       }`}
                     >
-                      <div className="relative aspect-[4/3] overflow-hidden border border-white/10 bg-eden-dark">
+                      <div className="relative aspect-[4/3] overflow-hidden border border-white/[0.04] bg-eden-dark">
                         <Image
-                          src={hasImage}
+                          src={imageUrl}
                           alt={`${service.title} — All the Glory`}
                           fill
                           className="object-cover"
                           sizes="(max-width: 768px) 100vw, 40vw"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-eden-black/50 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-eden-black/40 via-transparent to-transparent" />
                       </div>
                     </div>
                   )}
@@ -49,9 +49,9 @@ export function ServicesList() {
                   {/* Content column */}
                   <div
                     className={
-                      hasImage
+                      imageUrl
                         ? `md:col-span-7 ${isReversed ? "md:order-1" : ""}`
-                        : ""
+                        : "max-w-2xl"
                     }
                   >
                     <span className="block text-xs uppercase tracking-[0.2em] text-eden-gold mb-4 font-medium">
@@ -65,6 +65,11 @@ export function ServicesList() {
                     </p>
                   </div>
                 </div>
+
+                {/* Subtle separator between services */}
+                {i < SERVICES.length - 1 && (
+                  <div className="mt-16 md:mt-24 border-b border-white/[0.03]" />
+                )}
               </AnimatedSection>
             );
           })}

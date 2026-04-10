@@ -21,10 +21,9 @@ export function AlbumHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-serif text-4xl md:text-5xl lg:text-6xl text-eden-cream leading-tight mb-8"
+          className="font-serif text-[2.25rem] md:text-5xl lg:text-6xl text-eden-cream leading-tight mb-8"
         >
-          Music rooted in worship,
-          <br />
+          Music rooted in worship,{" "}
           <span className="text-eden-gold">testimony, and praise.</span>
         </motion.h1>
 

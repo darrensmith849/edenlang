@@ -103,11 +103,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
-          className="font-serif text-4xl md:text-6xl lg:text-7xl text-eden-cream leading-[1] mb-6"
+          className="font-serif text-[2.25rem] sm:text-5xl md:text-6xl lg:text-7xl text-eden-cream leading-[1.05] mb-6 max-w-4xl mx-auto"
         >
-          Custom songs, guitar-led
-          <br className="hidden md:block" /> creative work, and music
-          <br className="hidden md:block" /> with{" "}
+          Custom songs, guitar-led creative work, and music with{" "}
           <span className="text-eden-gold">depth</span>.
         </motion.h1>
 
