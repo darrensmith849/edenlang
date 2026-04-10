@@ -8,8 +8,6 @@ const socialLinks = [
   { label: "YouTube", href: SITE.socials.youtube },
   { label: "Spotify", href: SITE.socials.spotify },
   { label: "Apple Music", href: SITE.socials.appleMusic },
-  { label: "TikTok", href: SITE.socials.tiktok },
-  { label: "SoundCloud", href: SITE.socials.soundcloud },
 ];
 
 export function ContactInfo() {
@@ -36,9 +34,11 @@ export function ContactInfo() {
               Based In
             </h3>
             <p className="text-eden-muted text-base">
-              Harare, Zimbabwe
+              Zimbabwe
               <br />
-              <span className="text-eden-muted/60 text-sm">Working globally</span>
+              <span className="text-eden-muted/60 text-sm">
+                Available internationally
+              </span>
             </p>
           </div>
 
@@ -62,17 +62,16 @@ export function ContactInfo() {
             </div>
           </div>
 
-          {/* What to expect */}
+          {/* What to include */}
           <div>
             <h3 className="text-xs uppercase tracking-[0.25em] text-eden-gold mb-4 font-medium">
               What to Include
             </h3>
             <ul className="space-y-2">
               {[
-                "The type of project or collaboration",
-                "Your timeline and budget range",
-                "Any references or briefs",
-                "How you found my work",
+                "The type of event, booking, or collaboration",
+                "Your timeline and any relevant details",
+                "How you heard about All the Glory",
               ].map((item) => (
                 <li
                   key={item}

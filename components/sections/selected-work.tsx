@@ -5,36 +5,36 @@ import Link from "next/link";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { SectionHeader } from "@/components/ui/section";
 
-const works = [
+const offerings = [
   {
-    label: "Composition",
-    title: "Film, TV & Brand Scoring",
+    label: "Worship",
+    title: "Events & Ministry",
     description:
-      "Original music crafted for visual storytelling — emotionally precise, culturally rich, internationally ready.",
-    href: "/work",
+      "For church gatherings, worship nights, ministry settings, and faith-rooted live moments.",
+    href: "/bookings",
     gradient: "from-eden-gold/20 via-eden-gold/8 to-eden-black",
-    details: ["Film score", "Ad campaigns", "Sonic identities"],
-    energy: "Cinematic",
+    details: ["Worship events", "Ministry invitations", "Live worship"],
+    energy: "Reverent",
   },
   {
-    label: "Production",
-    title: "Artist Collaboration",
+    label: "Collaborate",
+    title: "Music & Creative",
     description:
-      "Full-spectrum production for artists seeking a sound that is both soulful and modern.",
-    href: "/work",
+      "Meaningful creative partnerships with artists, musicians, and aligned projects. Songwriting, production, and guitar-led sessions.",
+    href: "/bookings",
     gradient: "from-emerald-200/12 via-eden-charcoal to-eden-black",
-    details: ["Songwriting", "Arrangement", "Vocal direction"],
-    energy: "Soulful",
+    details: ["Collaborations", "Commissioned songs", "Guitar sessions"],
+    energy: "Creative",
   },
   {
-    label: "Content",
-    title: "Music-Tech Brands",
+    label: "Bookings",
+    title: "Artist & Partnerships",
     description:
-      "Authentic content connecting music technology products with real creative workflows.",
-    href: "/work",
+      "Live appearances, select performance opportunities, and tasteful brand partnerships aligned with the heart of the project.",
+    href: "/bookings",
     gradient: "from-sky-200/15 via-eden-charcoal to-eden-black",
-    details: ["Creator campaigns", "Tutorials", "Product storytelling"],
-    energy: "Impact",
+    details: ["Live bookings", "Select partnerships", "Enquiries"],
+    energy: "Intentional",
   },
 ];
 
@@ -43,7 +43,7 @@ export function SelectedWork() {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % works.length);
+      setActiveIndex((prev) => (prev + 1) % offerings.length);
     }, 3200);
     return () => clearInterval(timer);
   }, []);
@@ -53,17 +53,17 @@ export function SelectedWork() {
       <div className="relative z-10 mx-auto max-w-6xl px-6 md:px-8">
         <AnimatedSection>
           <SectionHeader
-            label="What I Do"
-            title="Creative work across disciplines"
-            description="From scoring to songwriting, from studio production to brand storytelling."
+            label="Work Together"
+            title="Bookings, collaborations & enquiries"
+            description="Worship events, ministry invitations, creative partnerships, and select opportunities."
           />
         </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {works.map((work, i) => (
-            <AnimatedSection key={work.title} delay={i * 0.1}>
+          {offerings.map((item, i) => (
+            <AnimatedSection key={item.title} delay={i * 0.1}>
               <Link
-                href={work.href}
+                href={item.href}
                 className="group block"
                 onMouseEnter={() => setActiveIndex(i)}
                 onFocus={() => setActiveIndex(i)}
@@ -76,29 +76,31 @@ export function SelectedWork() {
                   }`}
                 >
                   <div
-                    className={`absolute inset-0 bg-gradient-to-br ${work.gradient} ${
-                      activeIndex === i ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                    className={`absolute inset-0 bg-gradient-to-br ${item.gradient} ${
+                      activeIndex === i
+                        ? "opacity-100"
+                        : "opacity-0 group-hover:opacity-100"
                     } transition-opacity duration-500`}
                   />
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.22),transparent_35%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative">
                     <div className="flex items-center justify-between gap-3 mb-4">
                       <span className="block text-xs uppercase tracking-[0.25em] text-eden-gold font-medium">
-                        {work.label}
+                        {item.label}
                       </span>
                       <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-eden-cream/65">
                         <span className="w-1.5 h-1.5 rounded-full bg-eden-gold animate-pulse" />
-                        {work.energy}
+                        {item.energy}
                       </span>
                     </div>
                     <h3 className="font-serif text-xl md:text-2xl text-eden-cream mb-4 group-hover:text-eden-gold transition-colors duration-300">
-                      {work.title}
+                      {item.title}
                     </h3>
                     <p className="text-sm text-eden-muted leading-relaxed">
-                      {work.description}
+                      {item.description}
                     </p>
                     <div className="mt-6 flex flex-wrap gap-2">
-                      {work.details.map((detail) => (
+                      {item.details.map((detail) => (
                         <span
                           key={detail}
                           className="px-2.5 py-1 text-[10px] uppercase tracking-[0.15em] border border-white/15 text-eden-cream/70 bg-eden-black/35"
@@ -107,22 +109,8 @@ export function SelectedWork() {
                         </span>
                       ))}
                     </div>
-                    <div className="mt-5 flex items-end gap-1.5 h-6">
-                      {[0, 1, 2, 3, 4].map((bar) => (
-                        <span
-                          key={bar}
-                          className={`w-1 rounded-full bg-eden-gold/80 work-meter-bar ${
-                            activeIndex === i ? "opacity-100" : "opacity-30"
-                          }`}
-                          style={{
-                            height: `${40 + ((bar * 11 + i * 9) % 48)}%`,
-                            animationDelay: `${bar * 0.15}s`,
-                          }}
-                        />
-                      ))}
-                    </div>
                     <span className="inline-block mt-6 text-xs uppercase tracking-[0.2em] text-eden-cream/40 group-hover:text-eden-gold transition-colors duration-300">
-                      Learn more &rarr;
+                      Enquire &rarr;
                     </span>
                   </div>
                 </div>

@@ -6,7 +6,7 @@ import { MusicListen } from "./music-listen";
 export const metadata: Metadata = {
   title: "Music",
   description:
-    "Selected releases by Eden Lang — original songs, collaborations, and featured work. Listen on Spotify, Apple Music, and SoundCloud.",
+    "The first worship album from All the Glory is out now. Listen, share, and return to it whenever you need music that lifts your eyes back to Jesus.",
 };
 
 export default function MusicPage() {

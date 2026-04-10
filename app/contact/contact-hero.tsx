@@ -23,9 +23,9 @@ export function ContactHero() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="font-serif text-4xl md:text-5xl lg:text-6xl text-eden-cream leading-tight mb-8"
         >
-          Let&apos;s create something
+          Get in
           <br />
-          <span className="text-eden-gold">together</span>
+          <span className="text-eden-gold">touch</span>
         </motion.h1>
 
         <motion.p
@@ -34,8 +34,8 @@ export function ContactHero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-eden-muted text-base md:text-lg leading-relaxed max-w-xl"
         >
-          Whether you&apos;re a brand, a music supervisor, an artist, or someone
-          with a story that needs a soundtrack — I&apos;d love to hear from you.
+          For bookings, collaborations, ministry invitations, or general
+          enquiries, reach out below.
         </motion.p>
       </div>
     </section>

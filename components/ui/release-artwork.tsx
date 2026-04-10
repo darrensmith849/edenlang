@@ -1,7 +1,10 @@
 import { Release } from "@/lib/constants";
 import Image from "next/image";
 
-const TYPE_STYLES: Record<Release["type"], { ring: string; glow: string; text: string }> = {
+const TYPE_STYLES: Record<
+  Release["type"],
+  { ring: string; glow: string; text: string }
+> = {
   Single: {
     ring: "border-eden-gold/35",
     glow: "from-eden-gold/35 via-eden-charcoal to-eden-dark",
@@ -29,7 +32,10 @@ interface ReleaseArtworkProps {
   className?: string;
 }
 
-export function ReleaseArtwork({ release, className = "" }: ReleaseArtworkProps) {
+export function ReleaseArtwork({
+  release,
+  className = "",
+}: ReleaseArtworkProps) {
   const style = TYPE_STYLES[release.type];
   const hasCover = Boolean(release.coverImageUrl);
 
@@ -50,16 +56,20 @@ export function ReleaseArtwork({ release, className = "" }: ReleaseArtworkProps)
           <div className="absolute inset-0 bg-gradient-to-t from-eden-black/75 via-eden-black/30 to-transparent" />
         </>
       ) : (
-        <div className={`absolute inset-0 bg-gradient-to-br ${style.glow} opacity-70`} />
+        <div
+          className={`absolute inset-0 bg-gradient-to-br ${style.glow} opacity-70`}
+        />
       )}
       <div className="absolute -left-10 -top-10 h-28 w-28 rounded-full bg-white/10 blur-3xl" />
       <div className="absolute -bottom-12 -right-8 h-32 w-32 rounded-full bg-eden-gold/15 blur-3xl" />
       <div className="relative flex h-full flex-col justify-between p-5 md:p-6">
         <span className="text-[10px] uppercase tracking-[0.25em] text-eden-cream/45">
-          Eden Lang
+          All the Glory
         </span>
         <div>
-          <p className={`font-serif text-xl md:text-2xl leading-tight ${style.text}`}>
+          <p
+            className={`font-serif text-xl md:text-2xl leading-tight ${style.text}`}
+          >
             {release.title}
           </p>
           <p className="mt-2 text-[10px] uppercase tracking-[0.2em] text-eden-cream/45">

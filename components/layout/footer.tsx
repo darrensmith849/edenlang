@@ -6,7 +6,6 @@ const socialLinks = [
   { label: "YouTube", href: SITE.socials.youtube },
   { label: "Spotify", href: SITE.socials.spotify },
   { label: "Apple Music", href: SITE.socials.appleMusic },
-  { label: "TikTok", href: SITE.socials.tiktok },
 ];
 
 export function Footer() {
@@ -20,10 +19,11 @@ export function Footer() {
               href="/"
               className="font-serif text-2xl text-eden-cream hover:text-eden-gold transition-colors duration-300"
             >
-              Eden Lang
+              All the Glory
             </Link>
             <p className="mt-4 text-sm text-eden-muted leading-relaxed max-w-xs">
-              Zimbabwean music producer, composer, singer-songwriter, and content creator.
+              A worship music project rooted in testimony, redemption, and music
+              offered for the glory of God.
             </p>
           </div>
 
@@ -68,7 +68,8 @@ export function Footer() {
 
         <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-eden-muted/60">
-            &copy; {new Date().getFullYear()} Eden Lang. All rights reserved.
+            &copy; {new Date().getFullYear()} All the Glory. All rights
+            reserved.
           </p>
           <a
             href={`mailto:${SITE.email}`}

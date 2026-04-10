@@ -1,25 +1,59 @@
+// ---------------------------------------------------------------------------
+// All the Glory — canonical content configuration
+// ---------------------------------------------------------------------------
+// Every section of the site draws from this single file. Update content here
+// and the entire site reflects it. Image paths point to /public/images/atg/.
+// ---------------------------------------------------------------------------
+
 export const SITE = {
-  name: "Eden Lang",
-  title: "Eden Lang — Producer. Composer. Artist. Creator.",
+  name: "All the Glory",
+  title: "All the Glory | Worship Artist",
   description:
-    "Zimbabwean music producer, composer, singer-songwriter, and content creator. Crafting emotionally rich music for film, television, brands, and artists.",
-  url: "https://edenlangmusic.com",
-  email: "hello@edenlangmusic.com",
+    "All the Glory is a worship music project rooted in testimony, redemption, and music offered for the glory of God.",
+  url: "https://alltheglory.co", // placeholder — update when live
+  email: "hello@alltheglory.co", // placeholder — update when confirmed
   socials: {
-    instagram: "https://www.instagram.com/edenlangmusic/",
-    youtube: "https://www.youtube.com/@EdenLangMusic",
-    spotify: "https://open.spotify.com/artist/4Irukws5ELYBZwUpmWSNb2",
-    appleMusic: "https://music.apple.com/us/artist/eden-lang/1422676924",
-    soundcloud: "https://soundcloud.com/edenlang",
-    tiktok: "https://www.tiktok.com/@edenlang",
-    facebook: "https://www.facebook.com/edenlangmusic/",
+    instagram: "#", // placeholder
+    youtube: "#", // placeholder
+    spotify: "#", // placeholder
+    appleMusic: "#", // placeholder
+    soundcloud: "#", // placeholder
+    tiktok: "#", // placeholder
+    facebook: "#", // placeholder
   },
   media: {
-    heroVideoUrl:
-      "https://storage.googleapis.com/msgsndr/5nJLnDKeraFuidX6On1p/media/6943bcb559a0a67e9a9ff8ae.mp4",
+    heroVideoUrl: "/images/atg/hero-video.mp4",
   },
 } as const;
 
+// ---------------------------------------------------------------------------
+// Images — centralised map for easy future swapping
+// ---------------------------------------------------------------------------
+export const IMAGES = {
+  heroPortrait: "/images/atg/portrait-hero.jpg",
+  aboutPortrait: "/images/atg/portrait-about.jpg",
+  altPortrait: "/images/atg/portrait-alt.jpg",
+  creativeSession: "/images/atg/creative-session.jpg",
+  livePerformance: "/images/atg/live-performance.jpg",
+  /** Album artwork — replace when final art is ready */
+  albumCover: "/images/atg/portrait-alt.jpg", // placeholder
+} as const;
+
+// ---------------------------------------------------------------------------
+// Navigation
+// ---------------------------------------------------------------------------
+export const NAV_LINKS = [
+  { label: "About", href: "/about" },
+  { label: "Music", href: "/music" },
+  { label: "Videos", href: "/videos" },
+  { label: "Giving", href: "/giving" },
+  { label: "Bookings", href: "/bookings" },
+  { label: "Contact", href: "/contact" },
+] as const;
+
+// ---------------------------------------------------------------------------
+// Releases
+// ---------------------------------------------------------------------------
 export interface Release {
   title: string;
   year: string;
@@ -30,243 +64,121 @@ export interface Release {
   spotifyUrl?: string;
   appleMusicUrl?: string;
   soundcloudUrl?: string;
+  youtubeUrl?: string;
   featured?: boolean;
 }
 
 export const RELEASES: Release[] = [
   {
-    title: "Sunshine Vibe",
+    title: "First Worship Album",
     year: "2025",
-    type: "Single",
-    description:
-      "A warm, radiant release carrying the energy of forward motion and light.",
-    coverImageUrl:
-      "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f4/55/52/f4555234-871e-b90f-3342-1187fb271c96/199538102628.jpg/1200x1200bb.jpg",
-    primaryUrl:
-      "https://music.apple.com/us/album/sunshine-vibe-feat-eden-lang/1823033640?i=1823033642",
-    appleMusicUrl:
-      "https://music.apple.com/us/album/sunshine-vibe-feat-eden-lang/1823033640?i=1823033642",
-    featured: true,
-  },
-  {
-    title: "Maiwee",
-    year: "2024",
-    type: "Single",
-    description:
-      "A soulful meditation on regret and the desire to turn back time. Blending indie rock with traditional Zimbabwean musical elements, Maiwee is storytelling at its most honest.",
-    coverImageUrl:
-      "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/cd/ab/ff/cdabff2d-0c48-79d3-fb9d-ce11f7145e2f/artwork.jpg/1200x1200bb.jpg",
-    primaryUrl: "https://music.apple.com/us/album/maiwee/1731999378?i=1731999379",
-    appleMusicUrl:
-      "https://music.apple.com/zm/album/maiwee-single/1731999378",
-    soundcloudUrl: "https://soundcloud.com/edenlang",
-    featured: true,
-  },
-  {
-    title: "The Storm Is Over",
-    year: "2024",
-    type: "Feature",
-    description:
-      "A featured vocal performance on Danai Clay's stirring single — a song about resilience, faith, and finding peace after turbulence.",
-    coverImageUrl:
-      "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/4d/3a/9e/4d3a9e44-93ac-1e90-e378-c82a8daf13e2/artwork.jpg/1200x1200bb.jpg",
-    primaryUrl:
-      "https://music.apple.com/us/album/the-storm-is-over-feat-eden-lang/1753406187?i=1753406188",
-    appleMusicUrl:
-      "https://music.apple.com/us/album/the-storm-is-over-feat-eden-lang/1753406187?i=1753406188",
-    featured: true,
-  },
-  {
-    title: "Don't",
-    year: "2022",
-    type: "Feature",
-    description:
-      "A collaboration with Verseless from the SMILE EP. A vibrant fusion of Amapiano, pop, and Afrobeat — two Zimbabwean voices blending seamlessly.",
-    coverImageUrl:
-      "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/33/3f/dd/333fddba-dd52-9d13-73ff-217c52386392/757572933440.jpg/1200x1200bb.jpg",
-    primaryUrl:
-      "https://music.apple.com/us/album/dont-feat-eden-lang-radio-edit/1639125346?i=1639125356",
-    appleMusicUrl:
-      "https://music.apple.com/us/album/dont-single/1614612616",
-  },
-  {
-    title: "Glitter",
-    year: "",
-    type: "Single",
-    description:
-      "A fan favourite from the debut era — shimmering guitars, delicate falsettos, and the emotional clarity that defines Eden's sound.",
-    coverImageUrl:
-      "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/31/9c/48/319c4861-b495-46ab-7a5d-045d1f6c3404/artwork.jpg/1200x1200bb.jpg",
-    primaryUrl: "https://music.apple.com/us/album/glitter/1627340745?i=1627340747",
-    appleMusicUrl:
-      "https://music.apple.com/us/album/glitter/1627340745?i=1627340747",
-    soundcloudUrl: "https://soundcloud.com/edenlang",
-  },
-  {
-    title: "From Ashes to Beauty",
-    year: "",
     type: "Album",
     description:
-      "Eden's debut album — a collection of songs exploring heartbreak, self-discovery, and triumph. The foundation of everything that followed.",
-    coverImageUrl:
-      "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/31/9c/48/319c4861-b495-46ab-7a5d-045d1f6c3404/artwork.jpg/1200x1200bb.jpg",
-    primaryUrl:
-      "https://music.apple.com/us/album/from-ashes-to-beauty-ep/1627340745",
-    appleMusicUrl:
-      "https://music.apple.com/us/album/from-ashes-to-beauty-ep/1627340745",
-    soundcloudUrl: "https://soundcloud.com/edenlang",
+      "The debut worship album — songs of testimony, redemption, and praise offered for the glory of God. Listen, share, and return to it whenever you need music that lifts your eyes back to Jesus.",
+    coverImageUrl: "/images/atg/portrait-alt.jpg", // placeholder — replace with final album art
+    primaryUrl: "#", // placeholder — replace with streaming link
+    spotifyUrl: "#", // placeholder
+    appleMusicUrl: "#", // placeholder
+    youtubeUrl: "#", // placeholder
+    featured: true,
   },
+  // Add additional singles/tracks here as they become available.
+  // Each entry will automatically appear in the Music section.
 ];
 
-export interface Credit {
-  title: string;
-  role: string;
-  client?: string;
-  category: "composition" | "production" | "content" | "performance" | "animation";
-}
-
-export const CREDITS: Credit[] = [
-  {
-    title: "Lead Animator",
-    role: "Animation & motion design for commercial campaigns",
-    client: "TBWA Zimbabwe",
-    category: "animation",
-  },
-  {
-    title: "Storyboarding Intern",
-    role: "Visual storytelling and storyboard development",
-    client: "Netflix",
-    category: "animation",
-  },
-  {
-    title: "Scripts and Bars Incubator",
-    role: "Selected creative — British Council programme",
-    client: "British Council / Kay Media Africa",
-    category: "production",
-  },
-  {
-    title: "Artist of the Week",
-    role: "Featured artist spotlight",
-    client: "British Council Southern Africa Arts",
-    category: "performance",
-  },
-  {
-    title: "Shoko Festival 2022",
-    role: "Live performance — Moto Republik, Harare",
-    category: "performance",
-  },
-  {
-    title: "SMILE EP — Verseless",
-    role: "Featured vocalist and collaborator",
-    category: "production",
-  },
-];
-
-export interface Service {
+// ---------------------------------------------------------------------------
+// Service / Offering categories — used by the Bookings page
+// ---------------------------------------------------------------------------
+export interface Offering {
   title: string;
   description: string;
-  details: string[];
+  icon: string; // short label used as a visual accent
 }
 
-export const SERVICES: Service[] = [
+export const OFFERINGS: Offering[] = [
   {
-    title: "Composition for Film, TV & Brands",
+    title: "Worship Events",
     description:
-      "Original music crafted for visual storytelling — from cinematic scores to commercial soundtracks. Emotionally precise, culturally rich, internationally ready.",
-    details: [
-      "Film & television scoring",
-      "Commercial & campaign music",
-      "Sonic branding",
-      "Custom composition briefs",
-    ],
+      "For church gatherings, worship nights, ministry settings, and faith-rooted live moments.",
+    icon: "01",
   },
   {
-    title: "Music Production & Artist Collaboration",
+    title: "Ministry Invitations",
     description:
-      "Full-spectrum production for artists seeking a sound that is both soulful and modern. Songwriting, arrangement, vocal production, and mixing.",
-    details: [
-      "Artist production",
-      "Songwriting & toplining",
-      "Vocal arrangement & production",
-      "Co-production & collaboration",
-    ],
+      "For events and spaces where the music can serve a wider testimony and worship purpose.",
+    icon: "02",
   },
   {
-    title: "Content Creation for Music-Tech Brands",
+    title: "Artist Bookings",
     description:
-      "Authentic, engaging content that connects music technology products with real creative workflows. Built from genuine experience as a self-taught producer.",
-    details: [
-      "Product demos & reviews",
-      "Tutorial & educational content",
-      "Social media content",
-      "Brand storytelling",
-    ],
+      "For live appearances and select performance opportunities aligned with the heart of the project.",
+    icon: "03",
+  },
+  {
+    title: "Collaborations",
+    description:
+      "For meaningful creative partnerships with artists, musicians, and aligned projects.",
+    icon: "04",
+  },
+  {
+    title: "Commissioned Songs",
+    description:
+      "Available upon request, approached with care, sincerity, and intention.",
+    icon: "05",
+  },
+  {
+    title: "Guitar & Creative Sessions",
+    description:
+      "Guitar-led collaboration, musical support, and creative input where it fits naturally.",
+    icon: "06",
+  },
+  {
+    title: "Select Brand & Creative Partnerships",
+    description:
+      "Tasteful collaborations that align with the artistic and spiritual identity of the project. Selective by nature, not transactional.",
+    icon: "07",
   },
 ];
 
-export const BRAND_PARTNERS = [
-  "BandLab",
-  "TBWA",
-  "Vochlea",
-  "Baby Audio",
-] as const;
-
-export interface PressFeature {
-  publication: string;
-  title: string;
-  url?: string;
-  year: string;
-}
-
-export const PRESS: PressFeature[] = [
-  {
-    publication: "iNgudukazi Magazine",
-    title: "Meet Eden Lang, the Zimbabwean Indie Songstress",
-    url: "https://ingudukazi.co.zw/meet-eden-lang-the-zimbabwean-indie-songstress/",
-    year: "2024",
-  },
-  {
-    publication: "ZimSphere",
-    title: "Music Review: Eden Lang wishes she could turn back time in 'Maiwee'",
-    url: "https://www.zimsphere.co.zw/2024/03/music-review-eden-lang-maiwee.html",
-    year: "2024",
-  },
-  {
-    publication: "The Chronicle (Zimbabwe)",
-    title: "Eden Lang readies single spotlighting long distance relationships",
-    url: "https://www.chronicle.co.zw/eden-lang-readies-single-spotlighting-long-distance-relationships/",
-    year: "",
-  },
-  {
-    publication: "The Standard (Zimbabwe)",
-    title: "Eden Lang to drop new single",
-    url: "https://www.newsday.co.zw/thestandard/standard-style/article/200027079/eden-lang-to-drop-new-single",
-    year: "",
-  },
-  {
-    publication: "Music In Africa",
-    title: "Artist Directory — Eden Lang",
-    url: "https://www.musicinafrica.net/directory/eden-lang",
-    year: "",
-  },
-  {
-    publication: "British Council Southern Africa Arts",
-    title: "Artist of the Week",
-    year: "",
-  },
-];
-
-export const NAV_LINKS = [
-  { label: "About", href: "/about" },
-  { label: "Work", href: "/work" },
-  { label: "Music", href: "/music" },
-  { label: "Contact", href: "/contact" },
-] as const;
-
+// ---------------------------------------------------------------------------
+// Enquiry types — used by the contact form
+// ---------------------------------------------------------------------------
 export const ENQUIRY_TYPES = [
+  "Worship Event",
+  "Ministry Invitation",
+  "Artist Booking",
+  "Collaboration",
+  "Commissioned Song",
   "Brand Partnership",
-  "Sync & Licensing",
-  "Artist Collaboration",
-  "Press & Media",
   "General Enquiry",
 ] as const;
+
+// ---------------------------------------------------------------------------
+// Videos — placeholder entries; replace src with real YouTube embeds / URLs
+// ---------------------------------------------------------------------------
+export interface Video {
+  title: string;
+  description: string;
+  youtubeId?: string; // YouTube video ID for embedding
+  thumbnailUrl?: string; // optional custom thumbnail
+  featured?: boolean;
+}
+
+export const VIDEOS: Video[] = [
+  {
+    title: "Worship Session",
+    description: "A live worship moment captured in full.",
+    youtubeId: "", // placeholder — add YouTube video ID
+    featured: true,
+  },
+  {
+    title: "Behind the Music",
+    description: "The story and heart behind the songs.",
+    youtubeId: "", // placeholder
+  },
+  {
+    title: "Live Performance",
+    description: "Guitar-led worship in a live setting.",
+    youtubeId: "", // placeholder
+  },
+];

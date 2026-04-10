@@ -44,7 +44,7 @@ export function ContactForm() {
               Your email client should have opened
             </h3>
             <p className="text-eden-muted text-sm leading-relaxed mb-8">
-              If it didn&apos;t, you can reach me directly at{" "}
+              If it didn&apos;t, you can reach out directly at{" "}
               <a
                 href={`mailto:${SITE.email}`}
                 className="text-eden-gold hover:underline"
@@ -138,7 +138,7 @@ export function ContactForm() {
                 htmlFor="message"
                 className="block text-xs uppercase tracking-[0.2em] text-eden-cream/60 mb-3 font-medium"
               >
-                Tell me about your project
+                Tell us about your enquiry
               </label>
               <textarea
                 id="message"
@@ -146,7 +146,7 @@ export function ContactForm() {
                 rows={5}
                 required
                 className="w-full bg-transparent border-b border-white/10 focus:border-eden-gold text-eden-cream text-base py-3 outline-none transition-colors duration-300 placeholder:text-eden-muted/30 resize-none"
-                placeholder="What are you working on? How can I help?"
+                placeholder="What are you looking to discuss?"
               />
             </div>
 

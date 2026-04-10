@@ -14,9 +14,9 @@ export function FeaturedMusic() {
       <div className="mx-auto max-w-6xl px-6 md:px-8">
         <AnimatedSection>
           <SectionHeader
-            label="Selected Releases"
-            title="Don't hear the music — feel it"
-            description="Songs and collaborations that explore heartbreak, identity, resilience, and the textures of becoming."
+            label="Music"
+            title="The first worship album is out now"
+            description="Listen, share, and return to it whenever you need music that lifts your eyes back to Jesus."
           />
         </AnimatedSection>
 
@@ -24,12 +24,12 @@ export function FeaturedMusic() {
           {featured.map((release, i) => (
             <AnimatedSection key={release.title} delay={i * 0.1}>
               <div className="group">
-                {(release.primaryUrl || release.appleMusicUrl || release.soundcloudUrl) ? (
+                {release.primaryUrl && release.primaryUrl !== "#" ? (
                   <a
-                    href={release.primaryUrl || release.appleMusicUrl || release.soundcloudUrl}
+                    href={release.primaryUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`Open ${release.title}`}
+                    aria-label={`Listen to ${release.title}`}
                   >
                     <ReleaseArtwork
                       release={release}
@@ -50,36 +50,25 @@ export function FeaturedMusic() {
                   {release.year && (
                     <>
                       <span className="w-1 h-1 rounded-full bg-eden-muted/30" />
-                      <span className="text-xs text-eden-muted">{release.year}</span>
+                      <span className="text-xs text-eden-muted">
+                        {release.year}
+                      </span>
                     </>
                   )}
                 </div>
 
-                {(release.primaryUrl || release.appleMusicUrl || release.soundcloudUrl) ? (
-                  <a
-                    href={release.primaryUrl || release.appleMusicUrl || release.soundcloudUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block"
-                  >
-                    <h3 className="font-serif text-xl text-eden-cream mb-3 group-hover:text-eden-gold transition-colors duration-300">
-                      {release.title}
-                    </h3>
-                  </a>
-                ) : (
-                  <h3 className="font-serif text-xl text-eden-cream mb-3">
-                    {release.title}
-                  </h3>
-                )}
+                <h3 className="font-serif text-xl text-eden-cream mb-3 group-hover:text-eden-gold transition-colors duration-300">
+                  {release.title}
+                </h3>
 
                 <p className="text-sm text-eden-muted leading-relaxed mb-4">
                   {release.description}
                 </p>
 
                 <div className="flex gap-3">
-                  {(release.primaryUrl || release.appleMusicUrl || release.soundcloudUrl) && (
+                  {release.primaryUrl && release.primaryUrl !== "#" && (
                     <a
-                      href={release.primaryUrl || release.appleMusicUrl || release.soundcloudUrl}
+                      href={release.primaryUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-xs uppercase tracking-[0.15em] text-eden-gold hover:text-eden-gold-light transition-colors duration-300"
@@ -87,7 +76,7 @@ export function FeaturedMusic() {
                       Listen
                     </a>
                   )}
-                  {release.appleMusicUrl && (
+                  {release.appleMusicUrl && release.appleMusicUrl !== "#" && (
                     <a
                       href={release.appleMusicUrl}
                       target="_blank"
@@ -97,14 +86,14 @@ export function FeaturedMusic() {
                       Apple Music
                     </a>
                   )}
-                  {release.soundcloudUrl && (
+                  {release.spotifyUrl && release.spotifyUrl !== "#" && (
                     <a
-                      href={release.soundcloudUrl}
+                      href={release.spotifyUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-xs uppercase tracking-[0.15em] text-eden-cream/50 hover:text-eden-gold transition-colors duration-300"
                     >
-                      SoundCloud
+                      Spotify
                     </a>
                   )}
                 </div>
@@ -116,7 +105,7 @@ export function FeaturedMusic() {
         <AnimatedSection delay={0.3}>
           <div className="mt-16 text-center">
             <Button href="/music" variant="outline">
-              View All Releases
+              View All Music
             </Button>
           </div>
         </AnimatedSection>

@@ -23,7 +23,7 @@ export function MusicHero() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="font-serif text-4xl md:text-5xl lg:text-6xl text-eden-cream leading-tight mb-8"
         >
-          Selected releases
+          The first worship album is out now
         </motion.h1>
 
         <motion.p
@@ -32,8 +32,8 @@ export function MusicHero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-eden-muted text-base md:text-lg leading-relaxed max-w-2xl"
         >
-          Songs born from lived experience, imagination, and the quiet
-          conviction that music should make you feel something real.
+          Listen, share, and return to it whenever you need music that lifts
+          your eyes back to Jesus.
         </motion.p>
       </div>
     </section>

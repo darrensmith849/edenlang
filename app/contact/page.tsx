@@ -6,7 +6,7 @@ import { ContactInfo } from "./contact-info";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Eden Lang for brand partnerships, sync licensing, artist collaboration, press enquiries, and more.",
+    "For bookings, collaborations, ministry invitations, or general enquiries, reach out to All the Glory.",
 };
 
 export default function ContactPage() {

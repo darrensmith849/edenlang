@@ -5,46 +5,34 @@ import { SectionHeader } from "@/components/ui/section";
 
 const milestones = [
   {
-    period: "Early years",
-    title: "First songs & self-teaching",
+    period: "The Beginning",
+    title: "A life redirected by Jesus",
     description:
-      "Began writing songs and learning guitar from her father in Harare. Started recording on a home computer and creating animations alongside her music.",
+      "Drugs almost took everything. But grace intervened — and what followed was a radical redirection. Music became the response to redemption.",
   },
   {
-    period: "2018",
-    title: "From Ashes to Beauty",
+    period: "Foundation",
+    title: "Over a decade in music",
     description:
-      "Released her debut album — a collection of deeply personal songs exploring heartbreak, self-discovery, and triumph. Established her presence on SoundCloud and streaming platforms.",
+      "Years of songwriting, production, performance, and creative development — building a foundation rooted in craft, sincerity, and artistic integrity.",
   },
   {
-    period: "Professional",
-    title: "TBWA Zimbabwe — Lead Animator",
+    period: "Identity",
+    title: "Guitar at the centre",
     description:
-      "Spent two years as Lead Animator at TBWA Zimbabwe, bringing her creative vision to commercial campaigns for one of the world's largest advertising networks.",
+      "A strong guitar identity runs through everything. Multi-instrumentalist, producer, singer-songwriter — but guitar is the anchor.",
   },
   {
-    period: "Professional",
-    title: "Netflix — Storyboarding Internship",
+    period: "International",
+    title: "Performance experience worldwide",
     description:
-      "Selected for a three-month storyboarding internship with Netflix, applying her visual storytelling skills at a global scale.",
+      "International performance background bringing the music beyond Zimbabwe — live worship, events, and collaborations across borders.",
   },
   {
-    period: "2022",
-    title: "Shoko Festival",
+    period: "2025",
+    title: "First worship album released",
     description:
-      "Performed live at Shoko Festival at Moto Republik in Harare — one of Zimbabwe's most important arts and culture festivals.",
-  },
-  {
-    period: "2023",
-    title: "Scripts and Bars — British Council",
-    description:
-      "Selected for the Scripts and Bars Incubator, a creative economy programme supported by the British Council, focused on building digital and business skills for creative professionals.",
-  },
-  {
-    period: "2024",
-    title: "Maiwee & new collaborations",
-    description:
-      "Released Maiwee — blending indie rock with traditional Zimbabwean musical elements. Featured on Danai Clay's The Storm Is Over. Named British Council Southern Africa Arts' Artist of the Week.",
+      "The debut worship album — songs of testimony, redemption, and praise. Music freely available, offered for the glory of God.",
   },
 ];
 
@@ -54,7 +42,7 @@ export function AboutMilestones() {
       <div className="mx-auto max-w-4xl px-6 md:px-8">
         <AnimatedSection>
           <SectionHeader
-            label="Selected Milestones"
+            label="The Journey"
             title="The path so far"
           />
         </AnimatedSection>

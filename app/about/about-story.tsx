@@ -2,6 +2,7 @@
 
 import { AnimatedSection } from "@/components/ui/animated-section";
 import Image from "next/image";
+import { IMAGES } from "@/lib/constants";
 
 export function AboutStory() {
   return (
@@ -11,8 +12,8 @@ export function AboutStory() {
           <AnimatedSection className="md:col-span-5" direction="left">
             <div className="relative aspect-[3/4] overflow-hidden border border-white/10 bg-eden-dark">
               <Image
-                src="/images/eden/about-portrait.webp"
-                alt="Portrait of Eden Lang"
+                src={IMAGES.aboutPortrait}
+                alt="All the Glory — portrait"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 40vw"
@@ -21,7 +22,7 @@ export function AboutStory() {
               <div className="absolute inset-0 bg-gradient-to-t from-eden-black/70 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <span className="text-xs uppercase tracking-[0.25em] text-eden-cream/60">
-                  Eden Lang
+                  All the Glory
                 </span>
               </div>
             </div>
@@ -31,43 +32,37 @@ export function AboutStory() {
           <div className="md:col-span-7 flex flex-col justify-center">
             <AnimatedSection>
               <p className="text-eden-cream text-base md:text-lg leading-relaxed mb-6">
-                Eden Lang grew up in a musical household in Harare, Zimbabwe.
-                Her father — also a musician — put a guitar in her hands early.
-                By the time she was eight or nine, she was writing songs and
-                recording herself on her father&apos;s computer. By her teens, she
-                was animating her own music videos.
+                Life was radically redirected by Jesus. What could have been
+                lost — truly lost — was redeemed. Drugs almost took everything.
+                But grace intervened, and what followed was a complete
+                rewriting of the story.
               </p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
               <p className="text-eden-muted text-base leading-relaxed mb-6">
-                She never went to music school. She never studied animation
-                formally. She taught herself production, songwriting,
-                arrangement, mixing, 2D and 3D animation — building each skill
-                by doing the work, one song and one frame at a time. That
-                self-directed creative hunger is the thread through everything
-                she does.
+                All the Glory exists because of that redemption. The songs are
+                rooted in sincerity rather than performance. This is not about
+                building a persona or a platform — it is about music that
+                serves worship and points the glory back to God.
               </p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
               <p className="text-eden-muted text-base leading-relaxed mb-6">
-                Her music draws from deep wells — heartbreak, faith, social
-                justice, the quiet complexity of becoming who you are. Critics
-                have compared her storytelling instinct to artists like Lauryn
-                Hill and Hozier. But her sound is hers: soulful vocals, dreamy
-                guitars, pulsating drums, and a lyrical honesty that makes every
-                song feel like a conversation you weren&apos;t supposed to overhear.
+                Behind the project is over a decade of musical experience — a
+                Zimbabwean multi-instrumentalist, producer, and
+                singer-songwriter with international performance background.
+                Guitar sits at the centre of the creative identity, but the
+                work spans production, songwriting, and worship leading.
               </p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.3}>
               <p className="text-eden-muted text-base leading-relaxed">
-                Today, Eden works across multiple creative disciplines — composing
-                original music for film, television, and brands; producing for
-                artists; creating content for music technology companies; and
-                building towards a future where more women in Zimbabwe have access
-                to the tools and knowledge to create.
+                Every note, every lyric, every moment of worship is offered
+                freely — shaped by testimony, carried by grace, and given
+                back to the One who deserves all the glory.
               </p>
             </AnimatedSection>
           </div>

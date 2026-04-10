@@ -12,37 +12,35 @@ export function AboutMission() {
       <div className="relative z-10 mx-auto max-w-4xl px-6 md:px-8 text-center">
         <AnimatedText>
           <span className="block text-xs uppercase tracking-[0.3em] text-eden-gold mb-8 font-medium">
-            Looking Forward
+            The Heart
           </span>
         </AnimatedText>
 
         <AnimatedSection delay={0.1}>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-eden-cream leading-snug mb-8">
-            Building something bigger than music
+            This is not about building a persona
           </h2>
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>
           <p className="text-eden-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-6">
-            Eden&apos;s vision extends beyond her own catalogue. She is driven by a
-            deep commitment to empowering women and young creatives in Zimbabwe —
-            making music production tools, knowledge, and opportunities more
-            accessible. Preserving Zimbabwean musical traditions while building
-            bridges to the global creative economy.
+            It is about music that serves worship and points the glory back to
+            God. Every song, every collaboration, every live moment is shaped by
+            that conviction. The music is freely available — offered in
+            reverence, not as a product.
           </p>
         </AnimatedSection>
 
         <AnimatedSection delay={0.3}>
           <p className="text-eden-muted/70 text-sm leading-relaxed max-w-xl mx-auto mb-10">
-            This is a long-term mission — one that unfolds through education,
-            community, collaboration, and the simple act of showing what&apos;s
-            possible.
+            Worship. Reverence. Grace. Testimony. These are the foundations.
+            Everything else follows.
           </p>
         </AnimatedSection>
 
         <AnimatedSection delay={0.4}>
           <Button href="/contact" variant="primary">
-            Work With Eden
+            Get in Touch
           </Button>
         </AnimatedSection>
       </div>

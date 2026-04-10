@@ -12,31 +12,30 @@ export function ClosingCTA() {
       <div className="relative z-10 mx-auto max-w-3xl px-6 md:px-8 text-center">
         <AnimatedText>
           <span className="block text-xs uppercase tracking-[0.3em] text-eden-gold mb-8 font-medium">
-            Let&apos;s Work Together
+            Get in Touch
           </span>
         </AnimatedText>
 
         <AnimatedSection delay={0.1}>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-eden-cream leading-snug mb-6">
-            Every great project starts with a conversation
+            For bookings, collaborations, or enquiries
           </h2>
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>
           <p className="text-eden-muted text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-10">
-            Whether you&apos;re looking for original composition, artist
-            collaboration, sync licensing, or creative content — I&apos;d love to
-            hear about your project.
+            Whether it&apos;s a worship event, a ministry invitation, a creative
+            collaboration, or a general enquiry — reach out below.
           </p>
         </AnimatedSection>
 
         <AnimatedSection delay={0.3}>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button href="/contact" variant="primary" size="lg">
-              Start a Conversation
+              Get in Touch
             </Button>
-            <Button href="/work" variant="ghost" size="lg">
-              View My Work
+            <Button href="/bookings" variant="ghost" size="lg">
+              View Bookings
             </Button>
           </div>
         </AnimatedSection>

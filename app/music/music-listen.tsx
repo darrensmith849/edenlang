@@ -7,7 +7,6 @@ import { SITE } from "@/lib/constants";
 const platforms = [
   { name: "Spotify", href: SITE.socials.spotify },
   { name: "Apple Music", href: SITE.socials.appleMusic },
-  { name: "SoundCloud", href: SITE.socials.soundcloud },
   { name: "YouTube", href: SITE.socials.youtube },
 ];
 
@@ -23,12 +22,12 @@ export function MusicListen() {
           </span>
 
           <h2 className="font-serif text-3xl md:text-4xl text-eden-cream leading-snug mb-6">
-            Find Eden&apos;s music on your platform
+            Find the music on your platform
           </h2>
 
           <p className="text-eden-muted text-base leading-relaxed mb-10 max-w-xl mx-auto">
             Stream the full catalogue, discover new releases, and follow along
-            on the platform you love.
+            on the platform you love. The music is freely available.
           </p>
         </AnimatedSection>
 
@@ -45,14 +44,6 @@ export function MusicListen() {
                 {platform.name}
               </Button>
             ))}
-          </div>
-        </AnimatedSection>
-
-        <AnimatedSection delay={0.2}>
-          <div className="mt-16">
-            <Button href="/contact" variant="ghost">
-              Sync &amp; licensing enquiries &rarr;
-            </Button>
           </div>
         </AnimatedSection>
       </div>

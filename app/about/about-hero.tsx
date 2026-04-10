@@ -24,9 +24,9 @@ export function AboutHero() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="font-serif text-4xl md:text-5xl lg:text-6xl text-eden-cream leading-tight mb-8"
         >
-          A storyteller first.
+          Shaped by redemption.
           <br />
-          <span className="text-eden-gold">Everything else follows.</span>
+          <span className="text-eden-gold">Offered for His glory.</span>
         </motion.h1>
 
         <motion.p
@@ -35,7 +35,8 @@ export function AboutHero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-eden-muted text-base md:text-lg leading-relaxed max-w-2xl"
         >
-          Self-taught. Multi-disciplinary. Rooted in Harare, reaching everywhere.
+          All the Glory is a worship music project shaped by redemption,
+          gratitude, and a desire to point everything back to God.
         </motion.p>
       </div>
     </section>

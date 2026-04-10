@@ -43,7 +43,7 @@ export function Header() {
             className="font-serif text-xl md:text-2xl text-eden-cream tracking-wide hover:text-eden-gold transition-colors duration-300"
             onClick={() => setIsOpen(false)}
           >
-            Eden Lang
+            All the Glory
           </Link>
 
           {/* Desktop nav */}

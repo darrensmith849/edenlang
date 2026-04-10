@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { BRAND_PARTNERS, SITE } from "@/lib/constants";
+import { SITE, IMAGES } from "@/lib/constants";
 
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -11,12 +11,12 @@ export function Hero() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const partners = [...BRAND_PARTNERS, ...BRAND_PARTNERS];
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     setPrefersReducedMotion(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    const handler = (e: MediaQueryListEvent) =>
+      setPrefersReducedMotion(e.matches);
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
   }, []);
@@ -65,7 +65,7 @@ export function Hero() {
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
           onLoadedData={() => setVideoLoaded(true)}
-          poster="/images/eden/hero-portrait.png"
+          poster={IMAGES.heroPortrait}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
             videoLoaded ? "opacity-40" : "opacity-0"
           }`}
@@ -95,7 +95,7 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
         >
           <span className="inline-block text-xs uppercase tracking-[0.35em] text-eden-gold mb-6 font-medium">
-            Producer &middot; Composer &middot; Artist &middot; Creator
+            Worship Artist
           </span>
         </motion.div>
 
@@ -105,7 +105,7 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
           className="font-serif text-5xl md:text-7xl lg:text-8xl text-eden-cream leading-[0.95] mb-6"
         >
-          Eden Lang
+          All the Glory
         </motion.h1>
 
         <motion.p
@@ -114,8 +114,8 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
           className="text-base md:text-lg text-eden-cream/70 max-w-xl mx-auto mb-10 leading-relaxed"
         >
-          Crafting emotionally rich music for film, television, brands, and
-          artists — from Harare to the world.
+          Zimbabwean guitarist, producer, singer, and songwriter creating music
+          rooted in worship, testimony, and the redeeming power of Jesus.
         </motion.p>
 
         <motion.div
@@ -124,18 +124,25 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.9, ease: [0.25, 0.4, 0.25, 1] }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <Button href="/work" variant="primary" size="lg">
-            Explore Work
+          <Button href="/music" variant="primary" size="lg">
+            Listen Now
           </Button>
-          <Button href="/contact" variant="outline" size="lg">
-            Get in Touch
+          <Button href="/videos" variant="outline" size="lg">
+            Watch Videos
+          </Button>
+          <Button href="/giving" variant="ghost" size="lg">
+            Give
           </Button>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.05, ease: [0.25, 0.4, 0.25, 1] }}
+          transition={{
+            duration: 0.7,
+            delay: 1.05,
+            ease: [0.25, 0.4, 0.25, 1],
+          }}
           className="mt-6"
         >
           <button
@@ -144,26 +151,6 @@ export function Hero() {
           >
             {isMuted ? "Play with sound" : "Sound on"}
           </button>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.15, ease: [0.25, 0.4, 0.25, 1] }}
-          className="mt-8 relative mx-auto w-full max-w-3xl overflow-hidden rounded-full border border-white/10 bg-eden-black/65 backdrop-blur-sm carousel-fade-mask"
-        >
-          <div className="absolute inset-0 opacity-10 bg-[url('/images/eden/partners-banner.jpg')] bg-cover bg-center" />
-          <div className="relative flex min-w-max animate-partner-marquee py-3">
-            {partners.map((partner, idx) => (
-              <div key={`${partner}-${idx}`} className="mx-3 shrink-0">
-                <span className="inline-flex items-center px-4 py-1.5 border border-eden-gold/30 bg-eden-black/80 text-[10px] uppercase tracking-[0.18em] text-eden-cream/90">
-                  {partner}
-                </span>
-              </div>
-            ))}
-          </div>
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-eden-black via-eden-black/70 to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-eden-black via-eden-black/70 to-transparent" />
         </motion.div>
       </div>
 
@@ -176,7 +163,9 @@ export function Hero() {
         className="absolute bottom-8 right-6 md:right-8 z-10 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-eden-cream/50 hover:text-eden-gold transition-colors duration-300"
         aria-label={isMuted ? "Enable sound" : "Mute sound"}
       >
-        <span className="hidden sm:inline">{isMuted ? "Enable sound" : "Mute"}</span>
+        <span className="hidden sm:inline">
+          {isMuted ? "Enable sound" : "Mute"}
+        </span>
         <svg
           width="20"
           height="20"
@@ -210,7 +199,9 @@ export function Hero() {
         className="absolute bottom-8 right-44 md:right-48 z-10 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-eden-cream/50 hover:text-eden-gold transition-colors duration-300"
         aria-label={isPlaying ? "Pause video" : "Play video"}
       >
-        <span className="hidden sm:inline">{isPlaying ? "Pause video" : "Play video"}</span>
+        <span className="hidden sm:inline">
+          {isPlaying ? "Pause video" : "Play video"}
+        </span>
         {isPlaying ? (
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
             <rect x="6" y="5" width="4" height="14" />
