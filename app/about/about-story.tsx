@@ -13,7 +13,7 @@ export function AboutStory() {
             <div className="relative aspect-[3/4] overflow-hidden border border-white/10 bg-eden-dark">
               <Image
                 src={IMAGES.aboutPortrait}
-                alt="All the Glory — portrait"
+                alt="Daniel Jenkins — All the Glory"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 40vw"
@@ -22,47 +22,41 @@ export function AboutStory() {
               <div className="absolute inset-0 bg-gradient-to-t from-eden-black/70 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <span className="text-xs uppercase tracking-[0.25em] text-eden-cream/60">
-                  All the Glory
+                  Daniel Jenkins
                 </span>
               </div>
             </div>
           </AnimatedSection>
 
-          {/* Story */}
           <div className="md:col-span-7 flex flex-col justify-center">
             <AnimatedSection>
               <p className="text-eden-cream text-base md:text-lg leading-relaxed mb-6">
-                Life was radically redirected by Jesus. What could have been
-                lost — truly lost — was redeemed. Drugs almost took everything.
-                But grace intervened, and what followed was a complete
-                rewriting of the story.
+                With over a decade of professional musical experience spanning
+                songwriting, production, live performance, and creative
+                collaboration, Daniel brings a rare combination of technical
+                craft and emotional sincerity to every project. Guitar sits at
+                the centre of the creative identity — it is the primary
+                instrument and the anchor of the sound.
               </p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
               <p className="text-eden-muted text-base leading-relaxed mb-6">
-                All the Glory exists because of that redemption. The songs are
-                rooted in sincerity rather than performance. This is not about
-                building a persona or a platform — it is about music that
-                serves worship and points the glory back to God.
+                Worship remains at the core. The music and the creative work
+                are shaped by a deep spiritual grounding — a story of
+                redemption that informs the sincerity, the patience, and the
+                intention behind each piece. This is not about persona. It is
+                about meaningful work rather than hype.
               </p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
-              <p className="text-eden-muted text-base leading-relaxed mb-6">
-                Behind the project is over a decade of musical experience — a
-                Zimbabwean multi-instrumentalist, producer, and
-                singer-songwriter with international performance background.
-                Guitar sits at the centre of the creative identity, but the
-                work spans production, songwriting, and worship leading.
-              </p>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.3}>
               <p className="text-eden-muted text-base leading-relaxed">
-                Every note, every lyric, every moment of worship is offered
-                freely — shaped by testimony, carried by grace, and given
-                back to the One who deserves all the glory.
+                Whether creating a custom song for a personal story, providing
+                guitar for a creative campaign, collaborating on a production,
+                or leading worship at an event — the approach is always the
+                same: serious craft, genuine care, and a commitment to
+                something that lasts beyond the moment.
               </p>
             </AnimatedSection>
           </div>

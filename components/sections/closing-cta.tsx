@@ -18,24 +18,25 @@ export function ClosingCTA() {
 
         <AnimatedSection delay={0.1}>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-eden-cream leading-snug mb-6">
-            For bookings, collaborations, or enquiries
+            Every great project starts with a conversation
           </h2>
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>
           <p className="text-eden-muted text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-10">
-            Whether it&apos;s a worship event, a ministry invitation, a creative
-            collaboration, or a general enquiry — reach out below.
+            Whether it&apos;s a custom song, a creative collaboration, guitar
+            work for a campaign, or a worship booking — reach out and
+            let&apos;s talk about what we can create together.
           </p>
         </AnimatedSection>
 
         <AnimatedSection delay={0.3}>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button href="/contact" variant="primary" size="lg">
-              Get in Touch
+              Enquire Now
             </Button>
-            <Button href="/bookings" variant="ghost" size="lg">
-              View Bookings
+            <Button href="/services" variant="ghost" size="lg">
+              View Services
             </Button>
           </div>
         </AnimatedSection>

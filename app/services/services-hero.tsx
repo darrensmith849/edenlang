@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 
-export function MusicHero() {
+export function ServicesHero() {
   return (
     <section className="relative pt-40 pb-24 md:pt-48 md:pb-32 bg-eden-black overflow-hidden">
-      <div className="absolute top-32 left-1/3 w-[400px] h-[400px] rounded-full bg-eden-gold/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-20 right-1/4 w-[400px] h-[400px] rounded-full bg-eden-gold/5 blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 md:px-8">
         <motion.span
@@ -14,7 +14,7 @@ export function MusicHero() {
           transition={{ duration: 0.6 }}
           className="block text-xs uppercase tracking-[0.3em] text-eden-gold mb-6 font-medium"
         >
-          Music
+          Services
         </motion.span>
 
         <motion.h1
@@ -23,7 +23,11 @@ export function MusicHero() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="font-serif text-4xl md:text-5xl lg:text-6xl text-eden-cream leading-tight mb-8"
         >
-          The first worship album is out now
+          Bespoke music, guitar-led
+          <br />
+          <span className="text-eden-gold">creativity</span>, and select
+          <br />
+          collaborations.
         </motion.h1>
 
         <motion.p
@@ -32,8 +36,10 @@ export function MusicHero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-eden-muted text-base md:text-lg leading-relaxed max-w-2xl"
         >
-          Listen, share, and return to it whenever you need music that lifts
-          your eyes back to Jesus.
+          Each project is shaped with musical depth, artistic intention, and
+          genuine care. Whether for a personal milestone, a creative campaign,
+          or a meaningful collaboration, the work always comes from the same
+          place — sincerity, craft, and purpose.
         </motion.p>
       </div>
     </section>

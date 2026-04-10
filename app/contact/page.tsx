@@ -6,7 +6,7 @@ import { ContactInfo } from "./contact-info";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "For bookings, collaborations, ministry invitations, or general enquiries, reach out to All the Glory.",
+    "For custom songs, commissioned work, guitar-led creative projects, collaborations, bookings, or partnerships, get in touch with Daniel Jenkins / All the Glory.",
 };
 
 export default function ContactPage() {

@@ -69,9 +69,10 @@ export function ContactInfo() {
             </h3>
             <ul className="space-y-2">
               {[
-                "The type of event, booking, or collaboration",
+                "The type of project or service you need",
                 "Your timeline and any relevant details",
-                "How you heard about All the Glory",
+                "Budget range if applicable",
+                "How you found All the Glory",
               ].map((item) => (
                 <li
                   key={item}

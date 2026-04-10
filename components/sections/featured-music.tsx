@@ -1,114 +1,60 @@
 "use client";
 
+import Image from "next/image";
 import { AnimatedSection } from "@/components/ui/animated-section";
-import { SectionHeader } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
-import { ReleaseArtwork } from "@/components/ui/release-artwork";
-import { RELEASES } from "@/lib/constants";
+import { SITE, IMAGES } from "@/lib/constants";
 
-export function FeaturedMusic() {
-  const featured = RELEASES.filter((r) => r.featured).slice(0, 3);
-
+export function AlbumTeaser() {
   return (
-    <section className="relative py-24 md:py-32 lg:py-40 bg-eden-black">
-      <div className="mx-auto max-w-6xl px-6 md:px-8">
-        <AnimatedSection>
-          <SectionHeader
-            label="Music"
-            title="The first worship album is out now"
-            description="Listen, share, and return to it whenever you need music that lifts your eyes back to Jesus."
-          />
-        </AnimatedSection>
+    <section className="relative py-24 md:py-32 bg-eden-black overflow-hidden">
+      <div className="absolute top-0 left-1/4 w-[400px] h-[400px] rounded-full bg-eden-gold/5 blur-[150px] pointer-events-none" />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {featured.map((release, i) => (
-            <AnimatedSection key={release.title} delay={i * 0.1}>
-              <div className="group">
-                {release.primaryUrl && release.primaryUrl !== "#" ? (
-                  <a
-                    href={release.primaryUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Listen to ${release.title}`}
-                  >
-                    <ReleaseArtwork
-                      release={release}
-                      className="mb-6 aspect-square group-hover:border-eden-gold/55 transition-colors duration-500"
-                    />
-                  </a>
-                ) : (
-                  <ReleaseArtwork
-                    release={release}
-                    className="mb-6 aspect-square group-hover:border-eden-gold/55 transition-colors duration-500"
-                  />
-                )}
+      <div className="relative z-10 mx-auto max-w-6xl px-6 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center">
+          {/* Image */}
+          <AnimatedSection className="md:col-span-5" direction="left">
+            <div className="relative aspect-square max-w-[400px] mx-auto md:mx-0 overflow-hidden border border-white/10 bg-eden-dark">
+              <Image
+                src={IMAGES.albumCover}
+                alt="All the Glory — worship album"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 90vw, 400px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-eden-black/60 via-transparent to-transparent" />
+            </div>
+          </AnimatedSection>
 
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-xs uppercase tracking-[0.2em] text-eden-gold font-medium">
-                    {release.type}
-                  </span>
-                  {release.year && (
-                    <>
-                      <span className="w-1 h-1 rounded-full bg-eden-muted/30" />
-                      <span className="text-xs text-eden-muted">
-                        {release.year}
-                      </span>
-                    </>
-                  )}
-                </div>
-
-                <h3 className="font-serif text-xl text-eden-cream mb-3 group-hover:text-eden-gold transition-colors duration-300">
-                  {release.title}
-                </h3>
-
-                <p className="text-sm text-eden-muted leading-relaxed mb-4">
-                  {release.description}
-                </p>
-
-                <div className="flex gap-3">
-                  {release.primaryUrl && release.primaryUrl !== "#" && (
-                    <a
-                      href={release.primaryUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs uppercase tracking-[0.15em] text-eden-gold hover:text-eden-gold-light transition-colors duration-300"
-                    >
-                      Listen
-                    </a>
-                  )}
-                  {release.appleMusicUrl && release.appleMusicUrl !== "#" && (
-                    <a
-                      href={release.appleMusicUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs uppercase tracking-[0.15em] text-eden-cream/50 hover:text-eden-gold transition-colors duration-300"
-                    >
-                      Apple Music
-                    </a>
-                  )}
-                  {release.spotifyUrl && release.spotifyUrl !== "#" && (
-                    <a
-                      href={release.spotifyUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs uppercase tracking-[0.15em] text-eden-cream/50 hover:text-eden-gold transition-colors duration-300"
-                    >
-                      Spotify
-                    </a>
-                  )}
-                </div>
-              </div>
+          {/* Content */}
+          <div className="md:col-span-7">
+            <AnimatedSection>
+              <span className="block text-xs uppercase tracking-[0.3em] text-eden-gold mb-4 font-medium">
+                The Worship Project
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl text-eden-cream leading-tight mb-6">
+                Music rooted in worship, testimony, and praise
+              </h2>
+              <p className="text-eden-muted text-base leading-relaxed mb-4 max-w-lg">
+                The worship side of the work lives on its own dedicated site
+                under All the Glory. Visit to explore the latest worship
+                release, videos, and the wider music project.
+              </p>
+              <p className="text-eden-muted/60 text-sm leading-relaxed mb-8 max-w-lg">
+                The music is freely available — offered in reverence, not as
+                a product.
+              </p>
+              <Button
+                href={SITE.albumSiteUrl}
+                variant="outline"
+                size="lg"
+                external
+              >
+                Visit All the Glory &rarr;
+              </Button>
             </AnimatedSection>
-          ))}
-        </div>
-
-        <AnimatedSection delay={0.3}>
-          <div className="mt-16 text-center">
-            <Button href="/music" variant="outline">
-              View All Music
-            </Button>
           </div>
-        </AnimatedSection>
+        </div>
       </div>
     </section>
   );

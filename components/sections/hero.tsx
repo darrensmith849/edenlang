@@ -78,7 +78,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-eden-black/70 via-eden-black/40 to-eden-black" />
       <div className="absolute inset-0 bg-gradient-to-r from-eden-black/60 via-transparent to-eden-black/60" />
 
-      {/* Fallback cinematic gradient when no video */}
+      {/* Fallback */}
       {(!videoLoaded || prefersReducedMotion) && (
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-eden-charcoal via-eden-black to-eden-dark" />
@@ -95,7 +95,7 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
         >
           <span className="inline-block text-xs uppercase tracking-[0.35em] text-eden-gold mb-6 font-medium">
-            Worship Artist
+            Guitarist &middot; Producer &middot; Songwriter
           </span>
         </motion.div>
 
@@ -103,19 +103,25 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
-          className="font-serif text-5xl md:text-7xl lg:text-8xl text-eden-cream leading-[0.95] mb-6"
+          className="font-serif text-4xl md:text-6xl lg:text-7xl text-eden-cream leading-[1] mb-6"
         >
-          All the Glory
+          Custom songs, guitar-led
+          <br className="hidden md:block" /> creative work, and music
+          <br className="hidden md:block" /> with{" "}
+          <span className="text-eden-gold">depth</span>.
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
-          className="text-base md:text-lg text-eden-cream/70 max-w-xl mx-auto mb-10 leading-relaxed"
+          className="text-base md:text-lg text-eden-cream/70 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Zimbabwean guitarist, producer, singer, and songwriter creating music
-          rooted in worship, testimony, and the redeeming power of Jesus.
+          Rooted in over a decade of musical experience, this work brings
+          together songwriting, production, expressive guitar, and a heart for
+          meaning. Whether for a personal story, a brand moment, or a wider
+          creative project, each piece is approached with care, sincerity, and
+          strong musical craft.
         </motion.p>
 
         <motion.div
@@ -124,25 +130,21 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.9, ease: [0.25, 0.4, 0.25, 1] }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <Button href="/music" variant="primary" size="lg">
-            Listen Now
+          <Button href="/contact" variant="primary" size="lg">
+            Enquire Now
           </Button>
-          <Button href="/videos" variant="outline" size="lg">
-            Watch Videos
+          <Button href="/services" variant="outline" size="lg">
+            View Services
           </Button>
-          <Button href="/giving" variant="ghost" size="lg">
-            Give
+          <Button href="/worship-album" variant="ghost" size="lg">
+            Explore the Worship Album
           </Button>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.7,
-            delay: 1.05,
-            ease: [0.25, 0.4, 0.25, 1],
-          }}
+          transition={{ duration: 0.7, delay: 1.05, ease: [0.25, 0.4, 0.25, 1] }}
           className="mt-6"
         >
           <button
@@ -166,16 +168,7 @@ export function Hero() {
         <span className="hidden sm:inline">
           {isMuted ? "Enable sound" : "Mute"}
         </span>
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
           {isMuted ? (
             <>

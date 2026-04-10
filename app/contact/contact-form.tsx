@@ -138,7 +138,7 @@ export function ContactForm() {
                 htmlFor="message"
                 className="block text-xs uppercase tracking-[0.2em] text-eden-cream/60 mb-3 font-medium"
               >
-                Tell us about your enquiry
+                Tell us about your project
               </label>
               <textarea
                 id="message"
@@ -146,7 +146,7 @@ export function ContactForm() {
                 rows={5}
                 required
                 className="w-full bg-transparent border-b border-white/10 focus:border-eden-gold text-eden-cream text-base py-3 outline-none transition-colors duration-300 placeholder:text-eden-muted/30 resize-none"
-                placeholder="What are you looking to discuss?"
+                placeholder="What are you looking to create?"
               />
             </div>
 
@@ -155,7 +155,7 @@ export function ContactForm() {
               type="submit"
               className="inline-flex items-center justify-center px-9 py-4 bg-eden-gold text-eden-black text-xs uppercase tracking-widest font-medium hover:bg-eden-gold-light transition-all duration-300"
             >
-              Send Message
+              Send Enquiry
             </button>
           </motion.form>
         )}

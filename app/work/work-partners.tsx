@@ -3,12 +3,12 @@
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { PARTNERS } from "@/lib/constants";
 
-export function PartnerStrip() {
+export function WorkPartners() {
   return (
     <section className="relative py-16 md:py-20 bg-eden-black border-y border-white/5">
       <div className="mx-auto max-w-6xl px-6 md:px-8 text-center">
         <AnimatedSection>
-          <p className="text-xs uppercase tracking-[0.3em] text-eden-muted/50 mb-8">
+          <p className="text-xs uppercase tracking-[0.3em] text-eden-muted/50 mb-10">
             Selected partners &amp; collaborations
           </p>
         </AnimatedSection>
@@ -23,18 +23,10 @@ export function PartnerStrip() {
                 {partner.name}
               </span>
             ))}
-            {/* Placeholder slots for future partner logos */}
-            {PARTNERS.length < 4 && (
-              <>
-                <span className="text-xl md:text-2xl font-serif text-eden-cream/10">
-                  &mdash;
-                </span>
-                <span className="text-xl md:text-2xl font-serif text-eden-cream/10">
-                  &mdash;
-                </span>
-              </>
-            )}
           </div>
+          <p className="mt-8 text-[11px] text-eden-muted/40 uppercase tracking-[0.15em]">
+            Partner logos placeholder — supply assets to complete
+          </p>
         </AnimatedSection>
       </div>
     </section>

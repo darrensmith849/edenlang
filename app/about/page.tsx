@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import { AboutHero } from "./about-hero";
 import { AboutStory } from "./about-story";
-import { AboutMilestones } from "./about-milestones";
 import { AboutMission } from "./about-mission";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "The story behind All the Glory — a Zimbabwean worship music project shaped by redemption, gratitude, and a desire to point everything back to God.",
+    "Daniel Jenkins is a Zimbabwean guitarist, producer, singer, and songwriter whose work brings together musical craft, emotional depth, and a heart for worship.",
 };
 
 export default function AboutPage() {
@@ -15,7 +14,6 @@ export default function AboutPage() {
     <>
       <AboutHero />
       <AboutStory />
-      <AboutMilestones />
       <AboutMission />
     </>
   );

@@ -14,7 +14,7 @@ export function ContactHero() {
           transition={{ duration: 0.6 }}
           className="block text-xs uppercase tracking-[0.3em] text-eden-gold mb-6 font-medium"
         >
-          Contact
+          Enquire
         </motion.span>
 
         <motion.h1
@@ -23,9 +23,9 @@ export function ContactHero() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="font-serif text-4xl md:text-5xl lg:text-6xl text-eden-cream leading-tight mb-8"
         >
-          Get in
+          Let&apos;s create something
           <br />
-          <span className="text-eden-gold">touch</span>
+          <span className="text-eden-gold">together</span>
         </motion.h1>
 
         <motion.p
@@ -34,8 +34,9 @@ export function ContactHero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-eden-muted text-base md:text-lg leading-relaxed max-w-xl"
         >
-          For bookings, collaborations, ministry invitations, or general
-          enquiries, reach out below.
+          For custom songs, commissioned work, guitar-led creative projects,
+          collaborations, bookings, or partnership enquiries, get in touch
+          below.
         </motion.p>
       </div>
     </section>

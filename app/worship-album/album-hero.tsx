@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 
-export function GivingHero() {
+export function AlbumHero() {
   return (
     <section className="relative pt-40 pb-24 md:pt-48 md:pb-32 bg-eden-black overflow-hidden">
-      <div className="absolute top-20 left-1/3 w-[400px] h-[400px] rounded-full bg-eden-gold/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-20 left-1/4 w-[400px] h-[400px] rounded-full bg-eden-gold/5 blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 md:px-8">
         <motion.span
@@ -14,7 +14,7 @@ export function GivingHero() {
           transition={{ duration: 0.6 }}
           className="block text-xs uppercase tracking-[0.3em] text-eden-gold mb-6 font-medium"
         >
-          Giving
+          The Worship Project
         </motion.span>
 
         <motion.h1
@@ -23,7 +23,9 @@ export function GivingHero() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="font-serif text-4xl md:text-5xl lg:text-6xl text-eden-cream leading-tight mb-8"
         >
-          The music is freely available
+          Music rooted in worship,
+          <br />
+          <span className="text-eden-gold">testimony, and praise.</span>
         </motion.h1>
 
         <motion.p
@@ -32,7 +34,9 @@ export function GivingHero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-eden-muted text-base md:text-lg leading-relaxed max-w-2xl"
         >
-          If you feel led to support the work, you are welcome to give.
+          The worship side of the work lives on its own dedicated site under
+          All the Glory. Visit to explore the latest worship release, videos,
+          and the wider music project.
         </motion.p>
       </div>
     </section>

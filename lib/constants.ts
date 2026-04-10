@@ -1,25 +1,27 @@
 // ---------------------------------------------------------------------------
 // All the Glory — canonical content configuration
 // ---------------------------------------------------------------------------
-// Every section of the site draws from this single file. Update content here
-// and the entire site reflects it. Image paths point to /public/images/atg/.
+// Business-first site for Daniel Jenkins / All the Glory.
+// Services and enquiries are primary. Worship album is a secondary
+// destination with outbound referral to www.alltheglory.co.za.
 // ---------------------------------------------------------------------------
 
 export const SITE = {
   name: "All the Glory",
-  title: "All the Glory | Worship Artist",
+  businessLabel: "Daniel Jenkins / All the Glory",
+  title:
+    "All the Glory | Custom Songs, Guitar, Production & Creative Music",
   description:
-    "All the Glory is a worship music project rooted in testimony, redemption, and music offered for the glory of God.",
+    "Daniel Jenkins of All the Glory offers custom songs, commissioned music, guitar-led creative work for companies and projects, production collaboration, and select worship-rooted bookings.",
   url: "https://alltheglory.co", // placeholder — update when live
   email: "hello@alltheglory.co", // placeholder — update when confirmed
+  albumSiteUrl: "https://www.alltheglory.co.za",
   socials: {
     instagram: "#", // placeholder
     youtube: "#", // placeholder
     spotify: "#", // placeholder
     appleMusic: "#", // placeholder
-    soundcloud: "#", // placeholder
     tiktok: "#", // placeholder
-    facebook: "#", // placeholder
   },
   media: {
     heroVideoUrl: "/images/atg/hero-video.mp4",
@@ -30,12 +32,17 @@ export const SITE = {
 // Images — centralised map for easy future swapping
 // ---------------------------------------------------------------------------
 export const IMAGES = {
+  /** Strongest cinematic image — hero & featured sections */
   heroPortrait: "/images/atg/portrait-hero.jpg",
+  /** About section portrait */
   aboutPortrait: "/images/atg/portrait-about.jpg",
+  /** Services / work credibility */
   altPortrait: "/images/atg/portrait-alt.jpg",
+  /** Creative session / studio imagery */
   creativeSession: "/images/atg/creative-session.jpg",
+  /** Live performance / guitar imagery */
   livePerformance: "/images/atg/live-performance.jpg",
-  /** Album artwork — replace when final art is ready */
+  /** Worship album teaser image */
   albumCover: "/images/atg/portrait-alt.jpg", // placeholder
 } as const;
 
@@ -43,142 +50,88 @@ export const IMAGES = {
 // Navigation
 // ---------------------------------------------------------------------------
 export const NAV_LINKS = [
+  { label: "Services", href: "/services" },
+  { label: "Work", href: "/work" },
   { label: "About", href: "/about" },
-  { label: "Music", href: "/music" },
-  { label: "Videos", href: "/videos" },
-  { label: "Giving", href: "/giving" },
-  { label: "Bookings", href: "/bookings" },
+  { label: "Worship Album", href: "/worship-album" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
 // ---------------------------------------------------------------------------
-// Releases
+// Services — the core of the site
 // ---------------------------------------------------------------------------
-export interface Release {
-  title: string;
-  year: string;
-  type: "Single" | "Album" | "EP" | "Feature";
-  description: string;
-  coverImageUrl?: string;
-  primaryUrl?: string;
-  spotifyUrl?: string;
-  appleMusicUrl?: string;
-  soundcloudUrl?: string;
-  youtubeUrl?: string;
-  featured?: boolean;
-}
-
-export const RELEASES: Release[] = [
-  {
-    title: "First Worship Album",
-    year: "2025",
-    type: "Album",
-    description:
-      "The debut worship album — songs of testimony, redemption, and praise offered for the glory of God. Listen, share, and return to it whenever you need music that lifts your eyes back to Jesus.",
-    coverImageUrl: "/images/atg/portrait-alt.jpg", // placeholder — replace with final album art
-    primaryUrl: "#", // placeholder — replace with streaming link
-    spotifyUrl: "#", // placeholder
-    appleMusicUrl: "#", // placeholder
-    youtubeUrl: "#", // placeholder
-    featured: true,
-  },
-  // Add additional singles/tracks here as they become available.
-  // Each entry will automatically appear in the Music section.
-];
-
-// ---------------------------------------------------------------------------
-// Service / Offering categories — used by the Bookings page
-// ---------------------------------------------------------------------------
-export interface Offering {
+export interface Service {
   title: string;
   description: string;
-  icon: string; // short label used as a visual accent
+  icon: string;
 }
 
-export const OFFERINGS: Offering[] = [
+export const SERVICES: Service[] = [
   {
-    title: "Worship Events",
+    title: "Custom Songs",
     description:
-      "For church gatherings, worship nights, ministry settings, and faith-rooted live moments.",
+      "Custom recorded songs developed with care for the story behind them — whether personal, reflective, celebratory, or deeply meaningful.",
     icon: "01",
-  },
-  {
-    title: "Ministry Invitations",
-    description:
-      "For events and spaces where the music can serve a wider testimony and worship purpose.",
-    icon: "02",
-  },
-  {
-    title: "Artist Bookings",
-    description:
-      "For live appearances and select performance opportunities aligned with the heart of the project.",
-    icon: "03",
-  },
-  {
-    title: "Collaborations",
-    description:
-      "For meaningful creative partnerships with artists, musicians, and aligned projects.",
-    icon: "04",
   },
   {
     title: "Commissioned Songs",
     description:
-      "Available upon request, approached with care, sincerity, and intention.",
+      "Commissioned songwriting for those looking for something original, sincere, and crafted with depth rather than formula.",
+    icon: "02",
+  },
+  {
+    title: "Guitar for Companies & Creative Projects",
+    description:
+      "Expressive guitar work for companies, creative campaigns, visual storytelling, branded content, and projects that need something more human and emotionally resonant.",
+    icon: "03",
+  },
+  {
+    title: "Production & Songwriting Collaboration",
+    description:
+      "Creative collaboration across songwriting, arrangement, production direction, and musical development.",
+    icon: "04",
+  },
+  {
+    title: "Worship & Ministry Bookings",
+    description:
+      "Select bookings for worship nights, ministry events, and spaces where the music serves something deeper than performance alone.",
     icon: "05",
   },
   {
-    title: "Guitar & Creative Sessions",
+    title: "Partnerships",
     description:
-      "Guitar-led collaboration, musical support, and creative input where it fits naturally.",
+      "Selective collaboration with aligned creative brands, platforms, and projects where the partnership feels honest and fitting.",
     icon: "06",
   },
-  {
-    title: "Select Brand & Creative Partnerships",
-    description:
-      "Tasteful collaborations that align with the artistic and spiritual identity of the project. Selective by nature, not transactional.",
-    icon: "07",
-  },
 ];
+
+// ---------------------------------------------------------------------------
+// Partners — tasteful proof strip
+// ---------------------------------------------------------------------------
+export const PARTNERS = [
+  { name: "BandLab" },
+  // Add additional partners here as they are confirmed.
+] as const;
 
 // ---------------------------------------------------------------------------
 // Enquiry types — used by the contact form
 // ---------------------------------------------------------------------------
 export const ENQUIRY_TYPES = [
-  "Worship Event",
-  "Ministry Invitation",
-  "Artist Booking",
-  "Collaboration",
+  "Custom Song",
   "Commissioned Song",
-  "Brand Partnership",
+  "Guitar for Company / Project",
+  "Collaboration",
+  "Worship / Ministry Booking",
+  "Partnership",
   "General Enquiry",
 ] as const;
 
 // ---------------------------------------------------------------------------
-// Videos — placeholder entries; replace src with real YouTube embeds / URLs
+// Proof points — used in work/credibility sections
 // ---------------------------------------------------------------------------
-export interface Video {
-  title: string;
-  description: string;
-  youtubeId?: string; // YouTube video ID for embedding
-  thumbnailUrl?: string; // optional custom thumbnail
-  featured?: boolean;
-}
-
-export const VIDEOS: Video[] = [
-  {
-    title: "Worship Session",
-    description: "A live worship moment captured in full.",
-    youtubeId: "", // placeholder — add YouTube video ID
-    featured: true,
-  },
-  {
-    title: "Behind the Music",
-    description: "The story and heart behind the songs.",
-    youtubeId: "", // placeholder
-  },
-  {
-    title: "Live Performance",
-    description: "Guitar-led worship in a live setting.",
-    youtubeId: "", // placeholder
-  },
-];
+export const PROOF_POINTS = [
+  { label: "Years in Music", value: "10+" },
+  { label: "International Experience", value: "Yes" },
+  { label: "Core Instrument", value: "Guitar" },
+  { label: "Creative Range", value: "Full" },
+] as const;

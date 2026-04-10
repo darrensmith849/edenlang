@@ -22,8 +22,8 @@ export function Footer() {
               All the Glory
             </Link>
             <p className="mt-4 text-sm text-eden-muted leading-relaxed max-w-xs">
-              A worship music project rooted in testimony, redemption, and music
-              offered for the glory of God.
+              Custom songs, guitar-led creative work, production, and select
+              collaborations from Daniel Jenkins.
             </p>
           </div>
 

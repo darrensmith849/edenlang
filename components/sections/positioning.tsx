@@ -8,36 +8,37 @@ export function Positioning() {
       <div className="mx-auto max-w-4xl px-6 md:px-8 text-center">
         <AnimatedText>
           <span className="block text-xs uppercase tracking-[0.3em] text-eden-gold mb-8 font-medium">
-            Zimbabwe &middot; Worship &middot; Guitar
+            Daniel Jenkins &middot; All the Glory
           </span>
         </AnimatedText>
 
         <AnimatedSection delay={0.1}>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-eden-cream leading-snug mb-8">
-            Music offered in{" "}
-            <span className="text-eden-gold">reverence</span>, born from a
-            story that could have ended very differently.
+            Bespoke music, guitar-led{" "}
+            <span className="text-eden-gold">creativity</span>, and select
+            collaborations shaped with depth and intention.
           </h2>
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>
           <p className="text-eden-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-            All the Glory is a worship music project shaped by redemption,
-            gratitude, and a desire to point everything back to God. Rooted in
-            sincerity rather than performance — songs born from testimony, not
-            persona.
+            Daniel Jenkins is a Zimbabwean guitarist, producer, singer, and
+            songwriter with over a decade of professional musical experience.
+            From custom songs for personal milestones to guitar-led work for
+            creative campaigns, each project is approached with artistic
+            sincerity and strong musical craft.
           </p>
         </AnimatedSection>
 
         <AnimatedSection delay={0.3}>
           <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs uppercase tracking-[0.25em] text-eden-cream/40">
-            <span>Guitarist</span>
+            <span>Custom Songs</span>
             <span className="w-1 h-1 rounded-full bg-eden-gold/40" />
-            <span>Producer</span>
+            <span>Guitar</span>
             <span className="w-1 h-1 rounded-full bg-eden-gold/40" />
-            <span>Singer</span>
+            <span>Production</span>
             <span className="w-1 h-1 rounded-full bg-eden-gold/40" />
-            <span>Songwriter</span>
+            <span>Songwriting</span>
           </div>
         </AnimatedSection>
       </div>

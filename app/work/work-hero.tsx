@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 
-export function VideosHero() {
+export function WorkHero() {
   return (
     <section className="relative pt-40 pb-24 md:pt-48 md:pb-32 bg-eden-black overflow-hidden">
-      <div className="absolute top-32 right-1/4 w-[400px] h-[400px] rounded-full bg-eden-gold/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-20 left-1/3 w-[400px] h-[400px] rounded-full bg-eden-gold/5 blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 md:px-8">
         <motion.span
@@ -14,7 +14,7 @@ export function VideosHero() {
           transition={{ duration: 0.6 }}
           className="block text-xs uppercase tracking-[0.3em] text-eden-gold mb-6 font-medium"
         >
-          Videos
+          Selected Work
         </motion.span>
 
         <motion.h1
@@ -23,7 +23,9 @@ export function VideosHero() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="font-serif text-4xl md:text-5xl lg:text-6xl text-eden-cream leading-tight mb-8"
         >
-          Watch
+          Craft, credibility,
+          <br />
+          <span className="text-eden-gold">and creative proof.</span>
         </motion.h1>
 
         <motion.p
@@ -32,8 +34,8 @@ export function VideosHero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-eden-muted text-base md:text-lg leading-relaxed max-w-2xl"
         >
-          Watch performances, music videos, and moments that give more context
-          to the heart behind the songs.
+          A blend of songwriting, production, guitar, performance, and visual
+          storytelling shaped by both craft and meaning.
         </motion.p>
       </div>
     </section>

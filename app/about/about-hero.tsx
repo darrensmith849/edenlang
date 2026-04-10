@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 export function AboutHero() {
   return (
     <section className="relative pt-40 pb-24 md:pt-48 md:pb-32 bg-eden-black overflow-hidden">
-      {/* Ambient glow */}
       <div className="absolute top-20 left-1/4 w-[400px] h-[400px] rounded-full bg-eden-gold/5 blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 md:px-8">
@@ -24,9 +23,9 @@ export function AboutHero() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="font-serif text-4xl md:text-5xl lg:text-6xl text-eden-cream leading-tight mb-8"
         >
-          Shaped by redemption.
+          Craft, meaning,
           <br />
-          <span className="text-eden-gold">Offered for His glory.</span>
+          <span className="text-eden-gold">and honest music.</span>
         </motion.h1>
 
         <motion.p
@@ -35,8 +34,9 @@ export function AboutHero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-eden-muted text-base md:text-lg leading-relaxed max-w-2xl"
         >
-          All the Glory is a worship music project shaped by redemption,
-          gratitude, and a desire to point everything back to God.
+          Daniel Jenkins is a Zimbabwean guitarist, producer, singer, and
+          songwriter whose work brings together musical craft, emotional depth,
+          and a heart for worship.
         </motion.p>
       </div>
     </section>

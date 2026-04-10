@@ -1,9 +1,9 @@
 import { Hero } from "@/components/sections/hero";
 import { Positioning } from "@/components/sections/positioning";
-import { SelectedWork } from "@/components/sections/selected-work";
-import { FeaturedMusic } from "@/components/sections/featured-music";
+import { ServicesPreview } from "@/components/sections/selected-work";
 import { Testimony } from "@/components/sections/mission";
-import { GivingPreview } from "@/components/sections/trust-strip";
+import { AlbumTeaser } from "@/components/sections/featured-music";
+import { PartnerStrip } from "@/components/sections/trust-strip";
 import { ClosingCTA } from "@/components/sections/closing-cta";
 
 export default function HomePage() {
@@ -11,10 +11,10 @@ export default function HomePage() {
     <>
       <Hero />
       <Positioning />
+      <ServicesPreview />
       <Testimony />
-      <FeaturedMusic />
-      <SelectedWork />
-      <GivingPreview />
+      <PartnerStrip />
+      <AlbumTeaser />
       <ClosingCTA />
     </>
   );
