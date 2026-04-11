@@ -1,27 +1,21 @@
 // ---------------------------------------------------------------------------
-// All the Glory — canonical content configuration
-// ---------------------------------------------------------------------------
-// Business-first site for Daniel Jenkins / All the Glory.
-// Services and enquiries are primary. Worship album is a secondary
-// destination with outbound referral to www.alltheglory.co.za.
+// Daniel Jenkins — site configuration
 // ---------------------------------------------------------------------------
 
 export const SITE = {
-  name: "All the Glory",
-  businessLabel: "Daniel Jenkins / All the Glory",
-  title:
-    "All the Glory | Custom Songs, Guitar, Production & Creative Music",
+  name: "Daniel Jenkins",
+  title: "Daniel Jenkins | Guitarist, Producer & Songwriter",
   description:
-    "Daniel Jenkins of All the Glory offers custom songs, commissioned music, guitar-led creative work for companies and projects, production collaboration, and select worship-rooted bookings.",
-  url: "https://alltheglory.co", // placeholder — update when live
-  email: "hello@alltheglory.co", // placeholder — update when confirmed
+    "Zimbabwean guitarist, producer, and songwriter. Custom songs, recorded guitar for brands and campaigns, production, and select worship bookings.",
+  url: "https://danieljenkins.co", // placeholder
+  email: "hello@danieljenkins.co", // placeholder
   albumSiteUrl: "https://www.alltheglory.co.za",
   socials: {
-    instagram: "#", // placeholder
-    youtube: "#", // placeholder
-    spotify: "#", // placeholder
-    appleMusic: "#", // placeholder
-    tiktok: "#", // placeholder
+    instagram: "#",
+    youtube: "#",
+    spotify: "#",
+    appleMusic: "#",
+    tiktok: "#",
   },
   media: {
     heroVideoUrl: "/images/atg/hero-video.mp4",
@@ -29,21 +23,19 @@ export const SITE = {
 } as const;
 
 // ---------------------------------------------------------------------------
-// Images — centralised map for easy future swapping
+// Images
 // ---------------------------------------------------------------------------
 export const IMAGES = {
-  /** Strongest cinematic image — hero & featured sections */
-  heroPortrait: "/images/atg/portrait-hero.jpg",
-  /** About section portrait */
-  aboutPortrait: "/images/atg/portrait-about.jpg",
-  /** Services / work credibility */
-  altPortrait: "/images/atg/portrait-alt.jpg",
-  /** Creative session / studio imagery */
-  creativeSession: "/images/atg/creative-session.jpg",
-  /** Live performance / guitar imagery */
-  livePerformance: "/images/atg/live-performance.jpg",
-  /** Worship album teaser image */
-  albumCover: "/images/atg/portrait-alt.jpg", // placeholder
+  /** Moody door/guitar — hero poster, dark sections */
+  hero: "/images/atg/portrait-hero.jpg",
+  /** Rooftop guitar leap — the strongest cinematic shot */
+  rooftop: "/images/atg/portrait-about.jpg",
+  /** Graffiti wall walk — urban/creative energy */
+  street: "/images/atg/live-performance.jpg",
+  /** Studio console — production credibility */
+  studio: "/images/atg/creative-session.jpg",
+  /** Rooftop casual — secondary portrait */
+  portrait: "/images/atg/portrait-alt.jpg",
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -53,12 +45,12 @@ export const NAV_LINKS = [
   { label: "Services", href: "/services" },
   { label: "Work", href: "/work" },
   { label: "About", href: "/about" },
-  { label: "Worship Album", href: "/worship-album" },
+  { label: "Worship", href: "/worship-album" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
 // ---------------------------------------------------------------------------
-// Services — the core of the site
+// Services
 // ---------------------------------------------------------------------------
 export interface Service {
   title: string;
@@ -70,68 +62,65 @@ export const SERVICES: Service[] = [
   {
     title: "Custom Songs",
     description:
-      "Custom recorded songs developed with care for the story behind them — whether personal, reflective, celebratory, or deeply meaningful.",
+      "Songs written and recorded around your story. Personal, reflective, or celebratory — each one is crafted with genuine care, not off a template.",
     icon: "01",
   },
   {
-    title: "Commissioned Songs",
+    title: "Commissioned Songwriting",
     description:
-      "Commissioned songwriting for those looking for something original, sincere, and crafted with depth rather than formula.",
+      "Original songs commissioned for specific projects, moments, or concepts. No formula. No filler.",
     icon: "02",
   },
   {
-    title: "Guitar for Companies & Creative Projects",
+    title: "Guitar for Brands & Campaigns",
     description:
-      "Expressive guitar work for companies, creative campaigns, visual storytelling, branded content, and projects that need something more human and emotionally resonant.",
+      "Recorded guitar for film, advertising, branded content, and creative projects. Expressive, human, distinctive.",
     icon: "03",
   },
   {
-    title: "Production & Songwriting Collaboration",
+    title: "Production & Songwriting",
     description:
-      "Creative collaboration across songwriting, arrangement, production direction, and musical development.",
+      "Collaboration across songwriting, arrangement, and production. For artists, projects, and ideas that need musical depth.",
     icon: "04",
   },
   {
-    title: "Worship & Ministry Bookings",
+    title: "Worship & Ministry",
     description:
-      "Select bookings for worship nights, ministry events, and spaces where the music serves something deeper than performance alone.",
+      "Select bookings for worship nights, ministry events, and faith-rooted gatherings.",
     icon: "05",
   },
   {
     title: "Partnerships",
     description:
-      "Selective collaboration with aligned creative brands, platforms, and projects where the partnership feels honest and fitting.",
+      "Selective collaboration with aligned brands, platforms, and creative projects.",
     icon: "06",
   },
 ];
 
 // ---------------------------------------------------------------------------
-// Partners — tasteful proof strip
+// Partners
 // ---------------------------------------------------------------------------
-export const PARTNERS = [
-  { name: "BandLab" },
-  // Add additional partners here as they are confirmed.
-] as const;
+export const PARTNERS = [{ name: "BandLab" }] as const;
 
 // ---------------------------------------------------------------------------
-// Enquiry types — used by the contact form
+// Enquiry types
 // ---------------------------------------------------------------------------
 export const ENQUIRY_TYPES = [
   "Custom Song",
-  "Commissioned Song",
-  "Guitar for Company / Project",
-  "Collaboration",
+  "Commissioned Songwriting",
+  "Guitar for Brand / Campaign",
+  "Production Collaboration",
   "Worship / Ministry Booking",
   "Partnership",
   "General Enquiry",
 ] as const;
 
 // ---------------------------------------------------------------------------
-// Proof points — used in work/credibility sections
+// Proof points
 // ---------------------------------------------------------------------------
 export const PROOF_POINTS = [
   { label: "Years in Music", value: "10+" },
-  { label: "International Experience", value: "Yes" },
+  { label: "International", value: "Yes" },
   { label: "Core Instrument", value: "Guitar" },
-  { label: "Creative Range", value: "Full" },
+  { label: "Range", value: "Full" },
 ] as const;

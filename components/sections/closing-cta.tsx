@@ -1,42 +1,31 @@
 "use client";
 
-import { AnimatedSection, AnimatedText } from "@/components/ui/animated-section";
+import { AnimatedSection } from "@/components/ui/animated-section";
 import { Button } from "@/components/ui/button";
 
 export function ClosingCTA() {
   return (
-    <section className="relative py-24 md:py-32 lg:py-40 bg-eden-black overflow-hidden">
-      {/* Ambient glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-eden-gold/5 blur-[150px] pointer-events-none" />
+    <section className="relative py-24 md:py-32 bg-eden-charcoal grain overflow-hidden">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full bg-eden-gold/4 blur-[150px] pointer-events-none" />
 
-      <div className="relative z-10 mx-auto max-w-3xl px-6 md:px-8 text-center">
-        <AnimatedText>
-          <span className="block text-xs uppercase tracking-[0.3em] text-eden-gold mb-8 font-medium">
+      <div className="relative z-10 mx-auto max-w-2xl px-6 md:px-8 text-center">
+        <AnimatedSection>
+          <span className="text-[10px] uppercase tracking-[0.3em] text-eden-gold mb-4 block font-medium">
             Get in Touch
           </span>
-        </AnimatedText>
-
-        <AnimatedSection delay={0.1}>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-eden-cream leading-snug mb-6">
-            Every great project starts with a conversation
+          <h2 className="font-serif text-3xl md:text-4xl text-eden-cream leading-snug mb-5">
+            Have a project in mind?
           </h2>
-        </AnimatedSection>
-
-        <AnimatedSection delay={0.2}>
-          <p className="text-eden-muted text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-10">
-            Whether it&apos;s a custom song, a creative collaboration, guitar
-            work for a campaign, or a worship booking — reach out and
-            let&apos;s talk about what we can create together.
+          <p className="text-eden-muted text-sm leading-relaxed mb-8 max-w-md mx-auto">
+            Custom songs, guitar for campaigns, production, worship bookings
+            — reach out and let&apos;s talk.
           </p>
-        </AnimatedSection>
-
-        <AnimatedSection delay={0.3}>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button href="/contact" variant="primary" size="lg">
-              Enquire Now
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Button href="/contact" variant="primary" size="md">
+              Enquire
             </Button>
-            <Button href="/services" variant="ghost" size="lg">
-              View Services
+            <Button href="/services" variant="ghost" size="md">
+              Services
             </Button>
           </div>
         </AnimatedSection>

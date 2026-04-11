@@ -6,7 +6,7 @@ import { ServicesCTA } from "./services-cta";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Custom songs, commissioned music, guitar-led creative work for companies, production collaboration, worship bookings, and select creative partnerships.",
+    "Custom songs, commissioned songwriting, recorded guitar for brands and campaigns, production, worship bookings, and select partnerships.",
 };
 
 export default function ServicesPage() {

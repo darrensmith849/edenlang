@@ -19,10 +19,7 @@ const sans = Inter({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: SITE.title,
-    template: `%s — ${SITE.name}`,
-  },
+  title: { default: SITE.title, template: `%s — Daniel Jenkins` },
   description: SITE.description,
   metadataBase: new URL(SITE.url),
   openGraph: {
@@ -38,17 +35,9 @@ export const metadata: Metadata = {
     title: SITE.title,
     description: SITE.description,
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable}`}>
       <body className="min-h-screen bg-eden-black text-eden-cream font-sans antialiased">

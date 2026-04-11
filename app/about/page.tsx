@@ -5,8 +5,7 @@ import { AboutMission } from "./about-mission";
 
 export const metadata: Metadata = {
   title: "About",
-  description:
-    "Daniel Jenkins is a Zimbabwean guitarist, producer, singer, and songwriter whose work brings together musical craft, emotional depth, and a heart for worship.",
+  description: "Zimbabwean guitarist, producer, singer, and songwriter with over a decade of professional musical experience.",
 };
 
 export default function AboutPage() {

@@ -1,46 +1,49 @@
 "use client";
 
-import { AnimatedSection, AnimatedText } from "@/components/ui/animated-section";
+import Image from "next/image";
+import { AnimatedSection } from "@/components/ui/animated-section";
+import { IMAGES } from "@/lib/constants";
 
 export function Positioning() {
   return (
-    <section className="relative py-24 md:py-32 lg:py-40 bg-eden-black">
-      <div className="mx-auto max-w-4xl px-6 md:px-8 text-center">
-        <AnimatedText>
-          <span className="block text-xs uppercase tracking-[0.3em] text-eden-gold mb-8 font-medium">
-            Daniel Jenkins &middot; All the Glory
-          </span>
-        </AnimatedText>
+    <section className="relative py-24 md:py-32 bg-eden-black">
+      <div className="mx-auto max-w-6xl px-6 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center">
+          <AnimatedSection className="md:col-span-6" direction="left">
+            <div className="relative aspect-[3/2] overflow-hidden border border-white/[0.04] bg-eden-dark">
+              <Image
+                src={IMAGES.rooftop}
+                alt="Daniel Jenkins playing guitar on rooftop"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-eden-black/40 via-transparent to-transparent" />
+            </div>
+          </AnimatedSection>
 
-        <AnimatedSection delay={0.1}>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-eden-cream leading-snug mb-8">
-            Bespoke music, guitar-led{" "}
-            <span className="text-eden-gold">creativity</span>, and select
-            collaborations shaped with depth and intention.
-          </h2>
-        </AnimatedSection>
-
-        <AnimatedSection delay={0.2}>
-          <p className="text-eden-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-            Daniel Jenkins is a Zimbabwean guitarist, producer, singer, and
-            songwriter with over a decade of professional musical experience.
-            From custom songs for personal milestones to guitar-led work for
-            creative campaigns, each project is approached with artistic
-            sincerity and strong musical craft.
-          </p>
-        </AnimatedSection>
-
-        <AnimatedSection delay={0.3}>
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs uppercase tracking-[0.25em] text-eden-cream/40">
-            <span>Custom Songs</span>
-            <span className="w-1 h-1 rounded-full bg-eden-gold/40" />
-            <span>Guitar</span>
-            <span className="w-1 h-1 rounded-full bg-eden-gold/40" />
-            <span>Production</span>
-            <span className="w-1 h-1 rounded-full bg-eden-gold/40" />
-            <span>Songwriting</span>
+          <div className="md:col-span-6">
+            <AnimatedSection>
+              <span className="text-[10px] uppercase tracking-[0.3em] text-eden-gold mb-4 block font-medium">
+                Zimbabwe &middot; 10+ years &middot; International
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl text-eden-cream leading-snug mb-6">
+                Music built on craft, not trends.
+              </h2>
+              <p className="text-eden-muted text-sm md:text-base leading-relaxed mb-4">
+                Over a decade of songwriting, production, and performance.
+                Guitar at the centre. A professional background that spans
+                studio recording, live stages, and creative collaboration
+                across borders.
+              </p>
+              <p className="text-eden-muted/60 text-sm leading-relaxed">
+                Every project is approached the same way — with patience,
+                precision, and zero shortcuts.
+              </p>
+            </AnimatedSection>
           </div>
-        </AnimatedSection>
+        </div>
       </div>
     </section>
   );

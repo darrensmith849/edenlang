@@ -6,8 +6,7 @@ import { WorkCTA } from "./work-cta";
 
 export const metadata: Metadata = {
   title: "Work",
-  description:
-    "Selected work, creative proof, and the musical credibility behind Daniel Jenkins and All the Glory. Over a decade of songwriting, production, guitar, and performance.",
+  description: "Over a decade of songwriting, production, guitar, and performance. Selected visuals and creative proof.",
 };
 
 export default function WorkPage() {
