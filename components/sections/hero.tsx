@@ -28,6 +28,7 @@ export function Hero() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const hasUnmutedRef = useRef(false);
 
   const initPlayer = useCallback(() => {
     const yt = (window as any).YT;
@@ -98,6 +99,31 @@ export function Hero() {
     };
   }, [prefersReducedMotion, initPlayer]);
 
+  // Auto-unmute on first user interaction (browsers block unmuted autoplay)
+  useEffect(() => {
+    const unmute = () => {
+      if (hasUnmutedRef.current || !playerRef.current) return;
+      hasUnmutedRef.current = true;
+      playerRef.current.unMute();
+      playerRef.current.setVolume(100);
+      setIsMuted(false);
+      window.removeEventListener("click", unmute);
+      window.removeEventListener("scroll", unmute);
+      window.removeEventListener("keydown", unmute);
+      window.removeEventListener("touchstart", unmute);
+    };
+    window.addEventListener("click", unmute, { once: false });
+    window.addEventListener("scroll", unmute, { once: false });
+    window.addEventListener("keydown", unmute, { once: false });
+    window.addEventListener("touchstart", unmute, { once: false });
+    return () => {
+      window.removeEventListener("click", unmute);
+      window.removeEventListener("scroll", unmute);
+      window.removeEventListener("keydown", unmute);
+      window.removeEventListener("touchstart", unmute);
+    };
+  }, []);
+
   const toggleMute = () => {
     if (!playerRef.current) return;
     if (isMuted) {
@@ -129,7 +155,7 @@ export function Hero() {
           }`}
         >
           {/* Scale iframe to cover the container like object-fit: cover */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] min-w-[177.78vh] min-h-[56.25vw]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] h-[100vh] min-w-[100vw] min-h-[56.25vw]">
             <div id="yt-hero-player" className="w-full h-full" />
           </div>
         </div>
@@ -152,7 +178,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           <span className="text-[11px] uppercase tracking-[0.3em] text-eden-gold font-medium">
-            Guitarist &middot; Producer &middot; Songwriter
+            Guitarist &middot; Producer &middot; Singer &middot; Songwriter
           </span>
         </motion.div>
 
