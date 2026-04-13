@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface AnimatedSectionProps {
@@ -24,14 +24,16 @@ export function AnimatedSection({
   delay = 0,
   direction = "up",
 }: AnimatedSectionProps) {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <motion.div
-      initial={{ opacity: 0, ...directionOffset[direction] }}
+      initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, ...directionOffset[direction] }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{
-        duration: 0.8,
-        delay,
+        duration: prefersReducedMotion ? 0 : 0.8,
+        delay: prefersReducedMotion ? 0 : delay,
         ease: [0.25, 0.4, 0.25, 1],
       }}
       className={className}
@@ -50,14 +52,16 @@ export function AnimatedText({
   className?: string;
   delay?: number;
 }) {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{
-        duration: 0.6,
-        delay,
+        duration: prefersReducedMotion ? 0 : 0.6,
+        delay: prefersReducedMotion ? 0 : delay,
         ease: [0.25, 0.4, 0.25, 1],
       }}
       className={className}

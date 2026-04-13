@@ -23,6 +23,14 @@ export function Header() {
 
   return (
     <>
+      {/* Skip to content for keyboard users */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:bg-eden-gold focus:text-eden-black focus:px-4 focus:py-2 focus:text-sm focus:font-medium"
+      >
+        Skip to content
+      </a>
+
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
@@ -31,7 +39,7 @@ export function Header() {
             : "bg-transparent"
         )}
       >
-        <nav className="mx-auto max-w-6xl px-6 md:px-8 flex items-center justify-between h-16 md:h-20">
+        <nav aria-label="Main navigation" className="mx-auto max-w-6xl px-6 md:px-8 flex items-center justify-between h-16 md:h-20">
           <Link
             href="/"
             className="font-serif text-lg md:text-xl text-eden-cream tracking-wide hover:text-eden-gold transition-colors"
@@ -56,6 +64,7 @@ export function Header() {
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden relative w-8 h-8 flex items-center justify-center"
             aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
           >
             <div className="flex flex-col gap-1.5">
               <span className={cn("block w-6 h-px bg-eden-cream transition-all duration-300", isOpen && "rotate-45 translate-y-1")} />
@@ -73,8 +82,11 @@ export function Header() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 bg-eden-black/98 backdrop-blur-lg flex items-center justify-center"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation"
           >
-            <nav className="flex flex-col items-center gap-8">
+            <nav aria-label="Mobile navigation" className="flex flex-col items-center gap-8">
               {NAV_LINKS.map((link, i) => (
                 <motion.div
                   key={link.href}

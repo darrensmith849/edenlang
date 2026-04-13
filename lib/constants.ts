@@ -4,11 +4,11 @@
 
 export const SITE = {
   name: "Daniel Jenkins",
-  title: "Daniel Jenkins | Guitarist, Producer & Songwriter",
+  title: "Daniel Jenkins | Guitarist, Producer, Singer & Songwriter",
   description:
-    "Zimbabwean guitarist, producer, and songwriter. Custom songs, recorded guitar for brands and campaigns, production, and select worship bookings.",
-  url: "https://danieljenkins.co", // placeholder
-  email: "hello@danieljenkins.co", // placeholder
+    "Zimbabwean guitarist, producer, singer, and songwriter. Custom songs, recorded guitar for brands and campaigns, production, and select worship bookings. Enquire today.",
+  url: "https://danieljenkins.co",
+  email: "hello@danieljenkins.co",
   albumSiteUrl: "https://www.alltheglory.co.za",
   socials: {
     instagram: "#",
@@ -16,9 +16,6 @@ export const SITE = {
     spotify: "#",
     appleMusic: "#",
     tiktok: "#",
-  },
-  media: {
-    heroVideoUrl: "/images/atg/hero-video.mp4",
   },
 } as const;
 
@@ -120,7 +117,7 @@ export const ENQUIRY_TYPES = [
 // ---------------------------------------------------------------------------
 export const PROOF_POINTS = [
   { label: "Years in Music", value: "10+" },
-  { label: "International", value: "Yes" },
+  { label: "Reach", value: "Global" },
   { label: "Core Instrument", value: "Guitar" },
-  { label: "Range", value: "Full" },
+  { label: "Projects Delivered", value: "100+" },
 ] as const;

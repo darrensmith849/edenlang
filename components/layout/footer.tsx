@@ -1,7 +1,18 @@
 import Link from "next/link";
 import { SITE, NAV_LINKS } from "@/lib/constants";
 
+const SOCIAL_LINKS: { name: string; key: keyof typeof SITE.socials }[] = [
+  { name: "Instagram", key: "instagram" },
+  { name: "YouTube", key: "youtube" },
+  { name: "Spotify", key: "spotify" },
+];
+
 export function Footer() {
+  // Filter out placeholder "#" links
+  const activeSocials = SOCIAL_LINKS.filter(
+    (s) => SITE.socials[s.key] !== "#"
+  );
+
   return (
     <footer className="bg-eden-black border-t border-white/[0.04]">
       <div className="mx-auto max-w-6xl px-6 md:px-8 py-14 md:py-16">
@@ -11,7 +22,7 @@ export function Footer() {
               Daniel Jenkins
             </Link>
             <p className="mt-3 text-xs text-eden-muted/60 leading-relaxed max-w-xs">
-              Guitarist, producer, and songwriter. Custom songs, recorded
+              Guitarist, producer, singer, and songwriter. Custom songs, recorded
               guitar, production, and select worship bookings.
             </p>
           </div>
@@ -25,16 +36,25 @@ export function Footer() {
               ))}
             </div>
           </div>
-          <div>
-            <h3 className="text-[10px] uppercase tracking-[0.25em] text-eden-gold mb-4 font-medium">Connect</h3>
-            <div className="flex flex-col gap-2">
-              {["Instagram", "YouTube", "Spotify"].map((name) => (
-                <a key={name} href="#" target="_blank" rel="noopener noreferrer" className="text-xs text-eden-muted/50 hover:text-eden-cream transition-colors">
-                  {name}
-                </a>
-              ))}
+          {activeSocials.length > 0 && (
+            <div>
+              <h3 className="text-[10px] uppercase tracking-[0.25em] text-eden-gold mb-4 font-medium">Connect</h3>
+              <div className="flex flex-col gap-2">
+                {activeSocials.map((social) => (
+                  <a
+                    key={social.key}
+                    href={SITE.socials[social.key]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${social.name} (opens in new tab)`}
+                    className="text-xs text-eden-muted/50 hover:text-eden-cream transition-colors"
+                  >
+                    {social.name}
+                  </a>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
         <div className="mt-12 pt-6 border-t border-white/[0.03] flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-[10px] text-eden-muted/40">&copy; {new Date().getFullYear()} Daniel Jenkins</p>

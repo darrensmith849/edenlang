@@ -17,7 +17,7 @@ export function Positioning() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                priority
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-eden-black/40 via-transparent to-transparent" />
             </div>
