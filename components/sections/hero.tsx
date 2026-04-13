@@ -1,16 +1,63 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { SITE, IMAGES } from "@/lib/constants";
+
+const YT_VIDEO_ID = "do9D6ra6QT8";
+
+// Extend window for YouTube IFrame API
+declare global {
+  interface Window {
+    YT: typeof YT;
+    onYouTubeIframeAPIReady: () => void;
+  }
+}
 
 export function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const playerRef = useRef<YT.Player | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  const initPlayer = useCallback(() => {
+    if (!window.YT?.Player) return;
+    playerRef.current = new window.YT.Player("yt-hero-player", {
+      videoId: YT_VIDEO_ID,
+      playerVars: {
+        autoplay: 1,
+        mute: 1,
+        controls: 0,
+        showinfo: 0,
+        rel: 0,
+        loop: 1,
+        playlist: YT_VIDEO_ID,
+        modestbranding: 1,
+        playsinline: 1,
+        disablekb: 1,
+        fs: 0,
+        iv_load_policy: 3,
+        origin: typeof window !== "undefined" ? window.location.origin : "",
+      },
+      events: {
+        onReady: () => {
+          setVideoLoaded(true);
+          setIsPlaying(true);
+        },
+        onStateChange: (e: YT.OnStateChangeEvent) => {
+          if (e.data === window.YT.PlayerState.PLAYING) setIsPlaying(true);
+          if (e.data === window.YT.PlayerState.PAUSED) setIsPlaying(false);
+          // Re-loop if video ends (backup for loop param)
+          if (e.data === window.YT.PlayerState.ENDED) {
+            playerRef.current?.seekTo(0, true);
+            playerRef.current?.playVideo();
+          }
+        },
+      },
+    });
+  }, []);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -21,48 +68,63 @@ export function Hero() {
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  const toggleMute = async () => {
-    if (!videoRef.current) return;
-    const next = !videoRef.current.muted;
-    videoRef.current.muted = next;
-    if (!next) {
-      videoRef.current.volume = 1;
-      await videoRef.current.play().catch(() => {});
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+
+    // If API is already loaded, init directly
+    if (window.YT?.Player) {
+      initPlayer();
+      return;
     }
-    setIsMuted(next);
+
+    // Load the YouTube IFrame API
+    const tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
+
+    window.onYouTubeIframeAPIReady = initPlayer;
+
+    return () => {
+      playerRef.current?.destroy();
+      playerRef.current = null;
+    };
+  }, [prefersReducedMotion, initPlayer]);
+
+  const toggleMute = () => {
+    if (!playerRef.current) return;
+    if (isMuted) {
+      playerRef.current.unMute();
+      playerRef.current.setVolume(100);
+    } else {
+      playerRef.current.mute();
+    }
+    setIsMuted(!isMuted);
   };
 
   const togglePlay = () => {
-    if (!videoRef.current) return;
-    if (videoRef.current.paused) {
-      videoRef.current.play();
-      setIsPlaying(true);
+    if (!playerRef.current) return;
+    if (isPlaying) {
+      playerRef.current.pauseVideo();
     } else {
-      videoRef.current.pause();
-      setIsPlaying(false);
+      playerRef.current.playVideo();
     }
   };
 
   return (
     <section className="relative h-screen min-h-[600px] max-h-[1200px] overflow-hidden flex items-end pb-20 md:pb-28">
-      {/* Video background */}
+      {/* YouTube video background */}
       {!prefersReducedMotion && (
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          onPlay={() => setIsPlaying(true)}
-          onPause={() => setIsPlaying(false)}
-          onLoadedData={() => setVideoLoaded(true)}
-          poster={IMAGES.hero}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+        <div
+          ref={containerRef}
+          className={`absolute inset-0 overflow-hidden pointer-events-none transition-opacity duration-1000 ${
             videoLoaded ? "opacity-35" : "opacity-0"
           }`}
         >
-          <source src={SITE.media.heroVideoUrl} type="video/mp4" />
-        </video>
+          {/* Scale iframe to cover the container like object-fit: cover */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] min-w-[177.78vh] min-h-[56.25vw]">
+            <div id="yt-hero-player" className="w-full h-full" />
+          </div>
+        </div>
       )}
 
       <div className="absolute inset-0 bg-gradient-to-b from-eden-black/60 via-eden-black/30 to-eden-black" />
