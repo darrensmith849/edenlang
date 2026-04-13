@@ -6,16 +6,23 @@ import { Button } from "@/components/ui/button";
 
 const YT_VIDEO_ID = "do9D6ra6QT8";
 
-// Extend window for YouTube IFrame API
-declare global {
-  interface Window {
-    YT: typeof YT;
-    onYouTubeIframeAPIReady: () => void;
-  }
+/* eslint-disable @typescript-eslint/no-explicit-any */
+interface YTPlayer {
+  playVideo(): void;
+  pauseVideo(): void;
+  mute(): void;
+  unMute(): void;
+  setVolume(vol: number): void;
+  seekTo(seconds: number, allowSeekAhead: boolean): void;
+  destroy(): void;
+}
+
+interface YTPlayerEvent {
+  data: number;
 }
 
 export function Hero() {
-  const playerRef = useRef<YT.Player | null>(null);
+  const playerRef = useRef<YTPlayer | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -23,8 +30,9 @@ export function Hero() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   const initPlayer = useCallback(() => {
-    if (!window.YT?.Player) return;
-    playerRef.current = new window.YT.Player("yt-hero-player", {
+    const yt = (window as any).YT;
+    if (!yt?.Player) return;
+    playerRef.current = new yt.Player("yt-hero-player", {
       videoId: YT_VIDEO_ID,
       playerVars: {
         autoplay: 1,
@@ -46,11 +54,11 @@ export function Hero() {
           setVideoLoaded(true);
           setIsPlaying(true);
         },
-        onStateChange: (e: YT.OnStateChangeEvent) => {
-          if (e.data === window.YT.PlayerState.PLAYING) setIsPlaying(true);
-          if (e.data === window.YT.PlayerState.PAUSED) setIsPlaying(false);
-          // Re-loop if video ends (backup for loop param)
-          if (e.data === window.YT.PlayerState.ENDED) {
+        onStateChange: (e: YTPlayerEvent) => {
+          const states = yt.PlayerState;
+          if (e.data === states.PLAYING) setIsPlaying(true);
+          if (e.data === states.PAUSED) setIsPlaying(false);
+          if (e.data === states.ENDED) {
             playerRef.current?.seekTo(0, true);
             playerRef.current?.playVideo();
           }
@@ -72,7 +80,7 @@ export function Hero() {
     if (prefersReducedMotion) return;
 
     // If API is already loaded, init directly
-    if (window.YT?.Player) {
+    if ((window as any).YT?.Player) {
       initPlayer();
       return;
     }
@@ -82,7 +90,7 @@ export function Hero() {
     tag.src = "https://www.youtube.com/iframe_api";
     document.head.appendChild(tag);
 
-    window.onYouTubeIframeAPIReady = initPlayer;
+    (window as any).onYouTubeIframeAPIReady = initPlayer;
 
     return () => {
       playerRef.current?.destroy();
